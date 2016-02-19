@@ -10,12 +10,13 @@
     <atom:link href="http://iict.github.io/opstools/article/index.xml" rel="self" type="application/rss+xml" />
     
     <item>
-      <title>troubleshooting</title>
+      <title>Troubleshooting</title>
       <link>http://iict.github.io/opstools/article/troubleshooting/</link>
       <pubDate>Fri, 19 Feb 2016 15:40:30 +0100</pubDate>
       
       <guid>http://iict.github.io/opstools/article/troubleshooting/</guid>
-      <description></description>
+      <description>&lt;p&gt;To come&amp;hellip;&lt;/p&gt;
+</description>
     </item>
     
     <item>
@@ -306,7 +307,7 @@ The key&#39;s randomart image is:
     </item>
     
     <item>
-      <title>Install Linux</title>
+      <title>Install Linux on a VM</title>
       <link>http://iict.github.io/opstools/article/install_linux/</link>
       <pubDate>Fri, 19 Feb 2016 13:20:29 +0100</pubDate>
       
@@ -315,11 +316,7 @@ The key&#39;s randomart image is:
 
 &lt;h2 id=&#34;motivation:427105df0457cbf0f1fbed8e47f6af1d&#34;&gt;Motivation&lt;/h2&gt;
 
-&lt;p&gt;Most of the labs you will be working on during your stay are meant to be realised on a Unix-based system. That&amp;rsquo;s why it&amp;rsquo;s a good idea to prepare a Linux VM, that you will use whenever you need it.&lt;/p&gt;
-
-&lt;p&gt;If you work on Windows or Mac OS X, you will need to use a Linux VM. We recommend you to work on Ubuntu.&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;Note:&lt;/strong&gt; the following steps are for those who need a linux VM. You can use VirtualBox, VMware, Xen, etc but we &lt;strong&gt;strongly recommend&lt;/strong&gt; that you use VirtualBox, as there are a few settings we need to change and this document will only talk about the VirtualBox configuration. &lt;a href=&#34;https://www.virtualbox.org/&#34;&gt;Download VirtualBox&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;It is often necessary to work on a different OS. To avoid the hassle of installing a new OS or having different workspaces, creating a virtual machine provides a quick and useful way to do this. This document will show you how to install an Ubuntu Desktop distribution.&lt;/p&gt;
 
 &lt;h2 id=&#34;create-an-ubuntu-desktop-vm:427105df0457cbf0f1fbed8e47f6af1d&#34;&gt;Create an Ubuntu Desktop VM&lt;/h2&gt;
 
