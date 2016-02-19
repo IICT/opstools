@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>VirtualBox Tools</title>
+	<title>troubleshooting</title>
   	<meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -60,7 +60,7 @@
 	        <div class="col-lg-8">
 
 	            
-	            <h2><a href="http://iict.github.io/opstools/article/tools">VirtualBox Tools</a></h2>
+	            <h2><a href="http://iict.github.io/opstools/article/troubleshooting">troubleshooting</a></h2>
 	            <p class="lead">
 	                by <a href="http://iict.github.io/opstools/">IICT Team</a>
 	            </p>
@@ -69,110 +69,6 @@
 	            <hr>
 	            
 	            
-
-<h1 id="customize-your-installation:392b1cfe5865fa09a3eb545085be9682">Customize your installation</h1>
-
-<h2 id="install-the-virtualbox-tools:392b1cfe5865fa09a3eb545085be9682">Install the VirtualBox Tools</h2>
-
-<p>By default, a virtualized OS doest not know that it is virtual. It strongly believes that it is installed directly on top of hardware and that it is in total control. Well, that&rsquo;s not true. The VirtualBox tools are meant to be installed on a VM, to enable some options that are not possible otherwise.</p>
-
-<p>In the menu of VirtualBox -&gt; <strong>Devices</strong> -&gt; <strong>Insert Guest Additions CD Image&hellip;</strong></p>
-
-<ul>
-<li>Select <strong>Run</strong></li>
-<li>Type in your password</li>
-
-<li><p>reboot</p>
-
-<pre><code>$ sudo reboot
-</code></pre></li>
-</ul>
-
-<p>You now have support for the fullscreen on your VM. (<strong>Host + f</strong>).</p>
-
-<h2 id="enable-sharing-of-folders-between-the-linux-vm-and-your-host-machine:392b1cfe5865fa09a3eb545085be9682">Enable sharing of folders between the Linux VM and your host machine</h2>
-
-<p>On the command line of the Linux VM run the following commands and
-answer all questions with the default values:</p>
-
-<pre><code>$ sudo apt-get update
-$ sudo apt-get upgrade
-$ sudo apt-get install dkms
-</code></pre>
-
-<p>Reboot the VM:</p>
-
-<pre><code>$ sudo shutdown -r now
-</code></pre>
-
-<p>Insert into the VM&rsquo;s virtual CD-ROM drive the CD file
-<code>VBoxGuestAdditions.iso</code>: Navigate to Devices &gt; CD/DVD Devices &gt;
-Choose a virtual CD/DVD disk file&hellip;</p>
-
-<ul>
-<li>On Windows:</li>
-<li>On Mac: Leave the file selection dialog open. Open another finder
-window and navigate to Applications &gt; VirtualBox.app. Bring up the
-context menu ande select <strong>Show package contents</strong>. Navigate to
-Contents &gt; MacOS &gt; VBoxGuestAdditions.iso. Drag-and-drop this file
-into the open file selection dialog.</li>
-</ul>
-
-<p>Install the guest additions:</p>
-
-<pre><code>$ sudo mount -t iso9660 /dev/cdrom /media/cdrom
-$ sudo bash /media/cdrom/VBoxLinuxAdditions.run
-$ sudo umount /media/cdrom
-</code></pre>
-
-<p>Share a folder on the host machine: Navigate to Devices &gt; Shared
-Folder Settings&hellip; Click on <strong>Add</strong>. Select the folder you want to
-share, for example your home directory. Give a name under which this
-shared folder should appear to the guest, say <strong>albert.einstein</strong>.</p>
-
-<ul>
-<li>Enable <strong>Read-only</strong> if you want to prevent accidental modification
-of your files from Linux.</li>
-<li>Enable <strong>Auto-mount</strong></li>
-</ul>
-
-<p>Click <strong>OK</strong>.</p>
-
-<p>On the Linux VM create a directory where you want to mount the shared
-folder:</p>
-
-<pre><code>$ mkdir ~/hostfiles
-</code></pre>
-
-<p>Mount the shared folder <code>albert.einstein</code> on the directory <code>hostfiles</code>:</p>
-
-<pre><code>$ sudo mount -t vboxsf -o uid=$UID,gid=$(id -g) albert.einstein ~/hostfiles
-</code></pre>
-
-<h2 id="install-an-other-gui-for-your-vm:392b1cfe5865fa09a3eb545085be9682">Install an other GUI for your VM</h2>
-
-<p>Usually, you wouldn&rsquo;t set a GUI (Graphical User Interface) on a server. Still, the idea here is to make you discover more about Linux and how you can use it. The problem with the default GUI you get with Ubuntu is the fact that it&rsquo;s quite heavy and laggy as a VM. You can pick a different one.</p>
-
-<p>You will find a <a href="https://doc.ubuntu-fr.org/environnements">list of the diffrent GUI for Ubuntu</a> and how to install them. We recommend that you use Xfce or LXDE, both are pretty light and simple to use.</p>
-
-<p>You can also have various GUI installed at the same time and pick the one you want, in the login page, there is a white circle next to your name, clicking on it will allow you to choose the one you want.</p>
-
-<h3 id="installing-xfce:392b1cfe5865fa09a3eb545085be9682">Installing Xfce</h3>
-
-<p>Install only the desktop environment</p>
-
-<pre><code>$ sudo apt-get install xubuntu-desktop
-$ sudo reboot 
-</code></pre>
-
-<p>You may need to change the keyboard configuration</p>
-
-<h3 id="installing-lxde:392b1cfe5865fa09a3eb545085be9682">Installing LXDE</h3>
-
-<pre><code>$ sudo apt-get install lxde 
-$ sudo reboot 
-</code></pre>
-
 	            <hr>
 
 	            <div id="disqus_thread"></div>
