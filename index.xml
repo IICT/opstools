@@ -2,19 +2,19 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>IICT Ops Tools</title>
-    <link>http://ict.github.io/opstools/</link>
+    <link>http://iict.github.io/opstools/</link>
     <description>Recent content on IICT Ops Tools</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Fri, 19 Feb 2016 13:35:36 +0100</lastBuildDate>
-    <atom:link href="http://ict.github.io/opstools/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="http://iict.github.io/opstools/index.xml" rel="self" type="application/rss+xml" />
     
     <item>
       <title>VirtualBox Tools</title>
-      <link>http://ict.github.io/opstools/article/tools/</link>
+      <link>http://iict.github.io/opstools/article/tools/</link>
       <pubDate>Fri, 19 Feb 2016 13:35:36 +0100</pubDate>
       
-      <guid>http://ict.github.io/opstools/article/tools/</guid>
+      <guid>http://iict.github.io/opstools/article/tools/</guid>
       <description>
 
 &lt;h1 id=&#34;customize-your-installation:392b1cfe5865fa09a3eb545085be9682&#34;&gt;Customize your installation&lt;/h1&gt;
@@ -124,10 +124,10 @@ $ sudo reboot
     
     <item>
       <title>Use SSH</title>
-      <link>http://ict.github.io/opstools/article/ssh/</link>
+      <link>http://iict.github.io/opstools/article/ssh/</link>
       <pubDate>Fri, 19 Feb 2016 13:29:46 +0100</pubDate>
       
-      <guid>http://ict.github.io/opstools/article/ssh/</guid>
+      <guid>http://iict.github.io/opstools/article/ssh/</guid>
       <description>
 
 &lt;h1 id=&#34;allow-ssh-on-your-vm:b5e789e001cfcd9a18b36ef13da96386&#34;&gt;Allow SSH on your VM&lt;/h1&gt;
@@ -298,10 +298,10 @@ The key&#39;s randomart image is:
     
     <item>
       <title>Install Linux</title>
-      <link>http://ict.github.io/opstools/article/install_linux/</link>
+      <link>http://iict.github.io/opstools/article/install_linux/</link>
       <pubDate>Fri, 19 Feb 2016 13:20:29 +0100</pubDate>
       
-      <guid>http://ict.github.io/opstools/article/install_linux/</guid>
+      <guid>http://iict.github.io/opstools/article/install_linux/</guid>
       <description>
 
 &lt;h2 id=&#34;motivation:427105df0457cbf0f1fbed8e47f6af1d&#34;&gt;Motivation&lt;/h2&gt;
@@ -359,10 +359,10 @@ The key&#39;s randomart image is:
     
     <item>
       <title>About</title>
-      <link>http://ict.github.io/opstools/about/</link>
+      <link>http://iict.github.io/opstools/about/</link>
       <pubDate>Wed, 16 Dec 2015 10:59:56 +0100</pubDate>
       
-      <guid>http://ict.github.io/opstools/about/</guid>
+      <guid>http://iict.github.io/opstools/about/</guid>
       <description>
 
 &lt;h2 id=&#34;what-is-this-blog:6083a88ee3411b0d17ce02d738f69d47&#34;&gt;What is this blog&lt;/h2&gt;
