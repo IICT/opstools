@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Use SSH</title>
+  	<meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <link href="/static/css/bootstrap.min.css" rel="stylesheet">
+    <link href="/static/css/heig-cloud-home.css" rel="stylesheet">
+    <link rel="icon" type="image/png" href="/static/img/favicon.png" />
+
+</head>
+<body>
+
+<div id="fb-root"></div>
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) return;
+  js = d.createElement(s); js.id = id;
+  js.src = "//connect.facebook.net/fr_FR/sdk.js#xfbml=1&version=v2.5";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
+
+
+     
+    <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+        <div class="container">
+            
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="http://localhost:1313/">IICT Ops Tools</a>
+            </div>
+            
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav">
+                    <li><a href="http://localhost:1313/">Home</a></li>
+                    <li><a href="/article/">Articles</a></li>
+                    <li><a href="/about/">About</a></li>
+                    <li><a href="http://www.heig-vd.ch">HEIG-VD website</a></li>
+                </ul>
+            </div>
+            
+        </div>
+        
+    </nav>
+
+    
+	<div class="container">
+	    <div class="row">
+
+	        
+	        <div class="col-lg-8">
+
+	            
+	            <h2><a href="http://localhost:1313/article/ssh/">Use SSH</a></h2>
+	            <p class="lead">
+	                by <a href="http://localhost:1313/">IICT Team</a>
+	            </p>
+	            <p><span class="glyphicon glyphicon-time"></span> Posted on Fri, Feb 19, 2016</p>
+
+	            <hr>
+	            
+	            
+
+<h1 id="allow-ssh-on-your-vm:b5e789e001cfcd9a18b36ef13da96386">Allow SSH on your VM</h1>
+
+<h2 id="optionnal-install-git-bash-for-windows-users-only:b5e789e001cfcd9a18b36ef13da96386">(Optionnal) Install Git bash for Windows users only</h2>
+
+<p>You will need to use the ssh command from your Windows host on your guest VM. There are some tools like Putty that allows you to do so, but we will install <strong>Git bash</strong> instead. Git bash is an emulation of the BASH terminal and allows you (more or less) to use Linux commands from a terminal on a Windows host.</p>
+
+<ol>
+<li><p>Download Git Bash</p>
+
+<p>Download it here: <a href="https://git-for-windows.github.io/">https://git-for-windows.github.io/ </a></p></li>
+
+<li><p>Installation</p>
+
+<ul>
+<li>Select components: default</li>
+<li>Use Git from Git bash only</li>
+<li>Checkout-windows Style, commit Unix-style line endings</li>
+<li>Use MinTTY</li>
+</ul></li>
+
+<li><p>Launch it</p>
+
+<p>You should now have the program called <strong>Git Bash</strong>.
+The /home/your_name is mapped on C:\Users\your_name\, so for instance:</p>
+
+<pre><code># Path on linux
+  $ cd ~/.ssh
+  $ pwd
+  /home/administrator/.ssh
+
+
+# Path on Windows
+  $ cd ~/.ssh
+  $ pwd
+  /c/Users/your_name/.ssh
+</code></pre></li>
+</ol>
+
+<p>You should now be able to follow the rest of the procedure.</p>
+
+<h3 id="normal-operations:b5e789e001cfcd9a18b36ef13da96386">Normal Operations</h3>
+
+<h4 id="port-forwarding:b5e789e001cfcd9a18b36ef13da96386">Port forwarding</h4>
+
+<p>Make the virtual machine accessible via SSH so you can use more comfortable terminal software to log in instead of having to use the Linux console.</p>
+
+<p>Note that the configuration is different if you are using VMware or VirtualBox, as the networking component attaching the virtual machine to your host works differently for the two hypervisors.</p>
+
+<p>If you are using VirtualBox configure the networking of the virtual machine to forward incoming connections to port 2222 of address 127.0.0.1 to the SSH port (=22) of the virtual machine.</p>
+
+<p>Navigate to <strong>Settings &gt; Network &gt; Adapter 1.</strong> For <strong>Attached to:</strong> choose <strong>NAT</strong>. Click on <strong>Port Forwarding</strong>. Create a rule that maps incoming <strong>TCP</strong> connections on host IP <strong>127.0.0.1</strong>, port <strong>2222</strong> to guest port <strong>22</strong>.</p>
+
+<p>If you want to work on your VM using SSH, it&rsquo;s possible. To do this, you need to install ssh on your VM, (which should already be done during the installations but let&rsquo;s check nonetheless):</p>
+
+<pre><code>$ sudo apt-get update
+$ sudo apt-get install openssh-server 
+</code></pre>
+
+<h4 id="creating-the-keypairs:b5e789e001cfcd9a18b36ef13da96386">Creating the keypairs</h4>
+
+<p>There are two ways to login with ssh:</p>
+
+<ul>
+<li>Username and password</li>
+<li>Username and a keypair</li>
+</ul>
+
+<p>You need to set a few things up to use a keypair so you will start by using your username and password. You should be able to ssh in your VM like this:</p>
+
+<pre><code>$ ssh -p 2222 administrator@127.0.0.1
+...
+administrator@127.0.0.1's password: 
+</code></pre>
+
+<blockquote>
+<p><strong>Note:</strong> you may see a warning like this the first time you use ssh on a new host:</p>
+
+<p>RSA key fingerprint is xx:xx:xx:xx:xx:xx:xx:xx:xx:xx:xx:xx:xx.
+    Are you sure you want to continue connecting (yes/no)? yes</p>
+
+<p>If so, just type in <strong>yes</strong>.</p>
+</blockquote>
+
+<p>If it works, your terminal will look like this:</p>
+
+<pre><code>administrator@ubuntu:~$ 
+</code></pre>
+
+<p>You are now connected on your VM by through a ssh tunnel. And now a few steps:</p>
+
+<ol>
+<li><p>Create the SSH configuration directory ~/.ssh and protect it</p>
+
+<pre><code>$ mkdir ~/.ssh
+$ chmod go-rwx ~/.ssh 
+</code></pre></li>
+
+<li><p>Create your new keypair</p>
+
+<pre><code>$ ssh-keygen -t rsa -b 4096 -C &quot;your.name@heig-vd.ch&quot;
+Generating public/private rsa key pair.
+Enter file in which to save the key (/home/administrator/.ssh/id_rsa): 
+Created directory '/home/administrator/.ssh'.
+Enter passphrase (empty for no passphrase): #Press ENTER
+Enter same passphrase again: #Press ENTER 
+Your identification has been saved in /home/administrator/.ssh/id_rsa.
+Your public key has been saved in /home/administrator/.ssh/id_rsa.pub.
+The key fingerprint is:
+xx:xx:xx:xx:xx:xx:xx:xx:xx:xx:xx:xx: your.name@heig-vd.ch
+The key's randomart image is:
++--[ RSA 4096]----+
+|         .       |
+|        . .      |
+|         . .     |
+|      .   ...    |
+|     . .So...    |
+|      o o=o. +   |
+|       o..E.o .  |
+|        .+ *.    |
+|        ..+o.    |
++-----------------+
+</code></pre></li>
+
+<li><p>Add your new key to the authorized_keys file</p>
+
+<pre><code>$ nano ~/.ssh/authorized_keys
+
+
+# Paste the content of the id_rsa.pub file (enable copy and paste for your VM)
+# It means that this machine can now be &quot;sshed&quot; by the person who owns the private key.
+</code></pre></li>
+
+<li><p>Get the private key on your host</p>
+
+<pre><code>$ cat ~/.ssh/id_rsa
+# Just copy the content of the file with your VM's clipboard (copy and paste)
+
+
+-----BEGIN RSA PRIVATE KEY-----
+...............................
+...............................
+-----END RSA PRIVATE KEY-----
+</code></pre>
+
+<p>Paste the content of this file in a new file in your own ~/.ssh/ directory</p>
+
+<pre><code>$ nano ~/.ssh/id_rsa
+# You can change the name of the file if you want
+</code></pre></li>
+
+<li><p>Login on the machine</p>
+
+<pre><code>$ exit 
+# Will close the ssh connection
+</code></pre>
+
+<p>The following command should now work:</p>
+
+<pre><code>ssh -i ~/.ssh/id_rsa -p 2222 administrator@127.0.0.1
+</code></pre>
+
+<p>You no longer need to type in your password.</p></li>
+</ol>
+
+	            <hr>
+
+	            <div id="disqus_thread"></div>
+				<script>
+				    
+
+				    
+
+
+
+				    (function() {  
+				        var d = document, s = d.createElement('script');
+				        
+				        s.src = '//iictopstools.disqus.com/embed.js';
+				        
+				        s.setAttribute('data-timestamp', +new Date());
+				        (d.head || d.body).appendChild(s);
+				    })();
+				</script>
+				<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a></noscript>
+
+	        </div>
+
+
+
+
+            <div class="col-md-4">
+
+                
+                <div class="well">
+                    <h4>Last posts</h4>
+                    <div class="row">
+                        <div class="col-lg-6">
+                            <ul class="list-unstyled">
+                              
+                                
+                                  <li><a href="http://localhost:1313/article/tools/">VirtualBox Tools</a></li>
+                                
+                              
+                                
+                                  <li><a href="http://localhost:1313/article/ssh/">Use SSH</a></li>
+                                
+                              
+                                
+                                  <li><a href="http://localhost:1313/article/install_linux/">Install Linux</a></li>
+                                
+                              
+                                
+                              
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-lg-6">
+                            <ul class="list-unstyled">
+                            <li><strong><a href="/article/">See all articles</a></strong></li>
+                            </ul>
+                        </div>
+                    </div>
+                    
+                </div>
+
+                
+                <div class="well">
+                    <h4>Social</h4>
+                    <div class="fb-page" data-href="https://www.facebook.com/HEIGVD/" data-small-header="false" data-adapt-container-width="true" data-hide-cover="false" data-show-facepile="true"><div class="fb-xfbml-parse-ignore"><blockquote cite="https://www.facebook.com/HEIGVD/"><a href="https://www.facebook.com/HEIGVD/">HEIG-VD (Haute Ecole d&#039;Ingénierie et de Gestion du Canton de Vaud)</a></blockquote></div></div>
+                </div>
+
+            </div>
+        </div>
+
+        <footer>
+            <div class="row">
+                <div class="col-lg-12">
+                	<p><a href="#top">Go back to the top</a></p>
+                    <p>Copyright &copy; HEIG-VD, 2015. Content generated with <a href="http://gohugo.io/">Hugo</a>.</p>
+                </div>
+                
+            </div>
+            
+        </footer>
+
+    </div>
+    <script src="/static/js/jquery.js"></script>
+
+    
+    <script src="/static/js/bootstrap.min.js"></script>
+<script data-no-instant>document.write('<script src="http://'
+        + (location.host || 'localhost').split(':')[0]
+		+ ':1313/livereload.js?mindelay=10"></'
+        + 'script>')</script></body>
+</html>
