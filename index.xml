@@ -20,18 +20,18 @@
     </item>
     
     <item>
-      <title>VirtualBox Tools</title>
+      <title>Integrate your virtual machine with your local machine</title>
       <link>http://iict.github.io/opstools/article/tools/</link>
       <pubDate>Fri, 19 Feb 2016 13:35:36 +0100</pubDate>
       
       <guid>http://iict.github.io/opstools/article/tools/</guid>
       <description>
 
-&lt;h1 id=&#34;customize-your-installation:392b1cfe5865fa09a3eb545085be9682&#34;&gt;Customize your installation&lt;/h1&gt;
+&lt;h1 id=&#34;virtualbox-customizations:392b1cfe5865fa09a3eb545085be9682&#34;&gt;VirtualBox customizations&lt;/h1&gt;
 
-&lt;h2 id=&#34;install-the-virtualbox-tools:392b1cfe5865fa09a3eb545085be9682&#34;&gt;Install the VirtualBox Tools&lt;/h2&gt;
+&lt;h2 id=&#34;install-the-virtualbox-guest-additions:392b1cfe5865fa09a3eb545085be9682&#34;&gt;Install the VirtualBox Guest Additions&lt;/h2&gt;
 
-&lt;p&gt;By default, a virtualized OS doest not know that it is virtual. It strongly believes that it is installed directly on top of hardware and that it is in total control. Well, that&amp;rsquo;s not true. The VirtualBox tools are meant to be installed on a VM, to enable some options that are not possible otherwise.&lt;/p&gt;
+&lt;p&gt;By default, a virtualized OS doest not know that it is running in a virtual machine. It believes that it is installed directly on top of hardware and that it is in total control of the keyboard and mouse, for example. Well, that&amp;rsquo;s not true. The VirtualBox tools are meant to be installed on a VM, to enable some options that are not possible otherwise, like correct handling of the mouse, sharing of files between guest and host and others.&lt;/p&gt;
 
 &lt;p&gt;In the menu of VirtualBox -&amp;gt; &lt;strong&gt;Devices&lt;/strong&gt; -&amp;gt; &lt;strong&gt;Insert Guest Additions CD Image&amp;hellip;&lt;/strong&gt;&lt;/p&gt;
 
@@ -45,12 +45,13 @@
 &lt;/code&gt;&lt;/pre&gt;&lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;p&gt;You now have support for the fullscreen on your VM. (&lt;strong&gt;Host + f&lt;/strong&gt;).&lt;/p&gt;
+&lt;p&gt;You now can run the VM in a window with proper handling of the mouse or you can run it in fullscreen mode (&lt;strong&gt;Host + f&lt;/strong&gt;).&lt;/p&gt;
 
 &lt;h2 id=&#34;enable-sharing-of-folders-between-the-linux-vm-and-your-host-machine:392b1cfe5865fa09a3eb545085be9682&#34;&gt;Enable sharing of folders between the Linux VM and your host machine&lt;/h2&gt;
 
-&lt;p&gt;On the command line of the Linux VM run the following commands and
-answer all questions with the default values:&lt;/p&gt;
+&lt;p&gt;Normally, as the VM runs its own operating system, your host machines sees the VM as a completely separate machine. To transfer files between host and guest you would need to transfer the files over the network, for example using a file transfer protocol that is difficult to set up. Luckily there is a simpler solution: VirtualBox offers an option to share a folder between host and guest. This file sharing works similar to network file sharing, but is much easier to set up.&lt;/p&gt;
+
+&lt;p&gt;On the command line of the Linux VM run the following commands and answer all questions with the default values:&lt;/p&gt;
 
 &lt;pre&gt;&lt;code&gt;$ sudo apt-get update
 $ sudo apt-get upgrade
@@ -82,10 +83,7 @@ $ sudo bash /media/cdrom/VBoxLinuxAdditions.run
 $ sudo umount /media/cdrom
 &lt;/code&gt;&lt;/pre&gt;
 
-&lt;p&gt;Share a folder on the host machine: Navigate to Devices &amp;gt; Shared
-Folder Settings&amp;hellip; Click on &lt;strong&gt;Add&lt;/strong&gt;. Select the folder you want to
-share, for example your home directory. Give a name under which this
-shared folder should appear to the guest, say &lt;strong&gt;albert.einstein&lt;/strong&gt;.&lt;/p&gt;
+&lt;p&gt;Share a folder on the host machine: Navigate to &lt;strong&gt;Devices&lt;/strong&gt; &amp;gt; &lt;strong&gt;Shared Folder Settings&amp;hellip;&lt;/strong&gt; Click on &lt;strong&gt;Add&lt;/strong&gt;. Select the folder you want to share, for example your home directory. Give a name under which this shared folder should appear to the guest, say &lt;strong&gt;albert.einstein&lt;/strong&gt;.&lt;/p&gt;
 
 &lt;ul&gt;
 &lt;li&gt;Enable &lt;strong&gt;Read-only&lt;/strong&gt; if you want to prevent accidental modification
@@ -106,13 +104,13 @@ folder:&lt;/p&gt;
 &lt;pre&gt;&lt;code&gt;$ sudo mount -t vboxsf -o uid=$UID,gid=$(id -g) albert.einstein ~/hostfiles
 &lt;/code&gt;&lt;/pre&gt;
 
-&lt;h2 id=&#34;install-an-other-gui-for-your-vm:392b1cfe5865fa09a3eb545085be9682&#34;&gt;Install an other GUI for your VM&lt;/h2&gt;
+&lt;h2 id=&#34;install-an-other-gui-for-your-ubuntu-linux:392b1cfe5865fa09a3eb545085be9682&#34;&gt;Install an other GUI for your Ubuntu Linux&lt;/h2&gt;
 
-&lt;p&gt;Usually, you wouldn&amp;rsquo;t set a GUI (Graphical User Interface) on a server. Still, the idea here is to make you discover more about Linux and how you can use it. The problem with the default GUI you get with Ubuntu is the fact that it&amp;rsquo;s quite heavy and laggy as a VM. You can pick a different one.&lt;/p&gt;
+&lt;p&gt;The GUI you get with Ubuntu (called Unity) tends to run slowly inside a VM. Fortunately in the Linux world you can choose between many different GUIs. Some of them are faster, and some of them try to emulate the look and feel of Windows.&lt;/p&gt;
 
-&lt;p&gt;You will find a &lt;a href=&#34;https://doc.ubuntu-fr.org/environnements&#34;&gt;list of the diffrent GUI for Ubuntu&lt;/a&gt; and how to install them. We recommend that you use Xfce or LXDE, both are pretty light and simple to use.&lt;/p&gt;
+&lt;p&gt;The creators of Ubuntu maintain a &lt;a href=&#34;https://doc.ubuntu-fr.org/environnements&#34;&gt;list of the diffrent GUI for Ubuntu&lt;/a&gt; and how to install them. We recommend Xfce or LXDE, both are pretty light and simple to use.&lt;/p&gt;
 
-&lt;p&gt;You can also have various GUI installed at the same time and pick the one you want, in the login page, there is a white circle next to your name, clicking on it will allow you to choose the one you want.&lt;/p&gt;
+&lt;p&gt;You can also have different GUIs installed at the same time and pick the one you want when you log in. In the login page there is a white circle next to your name, clicking on it will allow you to choose the one you want.&lt;/p&gt;
 
 &lt;h3 id=&#34;installing-xfce:392b1cfe5865fa09a3eb545085be9682&#34;&gt;Installing Xfce&lt;/h3&gt;
 
@@ -133,18 +131,18 @@ $ sudo reboot
     </item>
     
     <item>
-      <title>Use SSH</title>
+      <title>Use SSH to log into your virtual machine</title>
       <link>http://iict.github.io/opstools/article/ssh/</link>
       <pubDate>Fri, 19 Feb 2016 13:29:46 +0100</pubDate>
       
       <guid>http://iict.github.io/opstools/article/ssh/</guid>
       <description>
 
-&lt;h1 id=&#34;allow-ssh-on-your-vm:b5e789e001cfcd9a18b36ef13da96386&#34;&gt;Allow SSH on your VM&lt;/h1&gt;
+&lt;p&gt;Professional developers and system administrators working with Linux servers often re-create the server environment on their local machine by running Linux with the server applications in a virtual machine. They are used to work on the command line and they connect to the remote servers via SSH. To access the local Linux VM they use SSH as well instead of using the VirtualBox/VMware console, because they can keep using the same keystrokes and work faster. In this article we explain how to set up SSH to connect from a host machine to a Linux guest VM.&lt;/p&gt;
 
-&lt;h2 id=&#34;optionnal-install-git-bash-for-windows-users-only:b5e789e001cfcd9a18b36ef13da96386&#34;&gt;(Optionnal) Install Git bash for Windows users only&lt;/h2&gt;
+&lt;h3 id=&#34;for-windows-users-only-install-git-bash:b5e789e001cfcd9a18b36ef13da96386&#34;&gt;(For Windows users only:) Install Git bash&lt;/h3&gt;
 
-&lt;p&gt;You will need to use the ssh command from your Windows host on your guest VM. There are some tools like Putty that allows you to do so, but we will install &lt;strong&gt;Git bash&lt;/strong&gt; instead. Git bash is an emulation of the BASH terminal and allows you (more or less) to use Linux commands from a terminal on a Windows host.&lt;/p&gt;
+&lt;p&gt;To connect to another machine via SSH you need an SSH client program on your Windows machine. A popular option is to use &lt;a href=&#34;http://www.putty.org&#34;&gt;Putty&lt;/a&gt;, but we recommend &lt;strong&gt;Git Bash&lt;/strong&gt; instead as it is easier to use. Git Bash has also the nice feature that it provides an emulation of the Bash shell and allows you (more or less) to use Linux commands from a terminal on a Windows machine.&lt;/p&gt;
 
 &lt;ol&gt;
 &lt;li&gt;&lt;p&gt;Download Git Bash&lt;/p&gt;
@@ -163,81 +161,103 @@ $ sudo reboot
 &lt;li&gt;&lt;p&gt;Launch it&lt;/p&gt;
 
 &lt;p&gt;You should now have the program called &lt;strong&gt;Git Bash&lt;/strong&gt;.
-The /home/your_name is mapped on C:\Users\your_name\, so for instance:&lt;/p&gt;
+In the terminal you can work with the directory &lt;code&gt;/home/your_name&lt;/code&gt;, it is mapped to the directory &lt;code&gt;C:\Users\your_name\&lt;/code&gt; in the real file system. So if you were doing for example on Linux:&lt;/p&gt;
 
-&lt;pre&gt;&lt;code&gt;# Path on linux
-  $ cd ~/.ssh
-  $ pwd
-  /home/administrator/.ssh
+&lt;pre&gt;&lt;code&gt;# Linux: Go to the SSH configuration directory 
+$ cd ~/.ssh
+$ pwd
+/home/administrator/.ssh
+&lt;/code&gt;&lt;/pre&gt;
 
+&lt;p&gt;you can do the equivalent in Bash shell on Windows&lt;/p&gt;
 
-# Path on Windows
-  $ cd ~/.ssh
-  $ pwd
-  /c/Users/your_name/.ssh
+&lt;pre&gt;&lt;code&gt;# Bash shell on Windows: Go to the SSH configuration directory
+$ cd ~/.ssh
+$ pwd
+/c/Users/your_name/.ssh
 &lt;/code&gt;&lt;/pre&gt;&lt;/li&gt;
 &lt;/ol&gt;
 
-&lt;p&gt;You should now be able to follow the rest of the procedure.&lt;/p&gt;
+&lt;p&gt;You should now be able to follow the rest of the instructions on how to set up SSH.&lt;/p&gt;
 
-&lt;h3 id=&#34;normal-operations:b5e789e001cfcd9a18b36ef13da96386&#34;&gt;Normal Operations&lt;/h3&gt;
+&lt;p&gt;&lt;strong&gt;Caution:&lt;/strong&gt; When you are asked in a lab to work with Bash (command line or scripts), don&amp;rsquo;t use Git Bash to do the lab, as it is not a real Bash shell. Use it only to &lt;strong&gt;connect&lt;/strong&gt; to a machine where a real Bash shell is running.&lt;/p&gt;
 
-&lt;h4 id=&#34;port-forwarding:b5e789e001cfcd9a18b36ef13da96386&#34;&gt;Port forwarding&lt;/h4&gt;
+&lt;h3 id=&#34;configure-the-virtualization-software-to-forward-port-2222-to-port-22:b5e789e001cfcd9a18b36ef13da96386&#34;&gt;Configure the virtualization software to forward port 2222 to port 22&lt;/h3&gt;
 
-&lt;p&gt;Make the virtual machine accessible via SSH so you can use more comfortable terminal software to log in instead of having to use the Linux console.&lt;/p&gt;
+&lt;p&gt;In this section we change the networking configuration of the virtualization software so that the SSH client on your host can connect to the SSH server on your guest VM.&lt;/p&gt;
 
-&lt;p&gt;Note that the configuration is different if you are using VMware or VirtualBox, as the networking component attaching the virtual machine to your host works differently for the two hypervisors.&lt;/p&gt;
+&lt;p&gt;Note that the configuration is different if you are using VirtualBox or VMware, as the networking component attaching the virtual machine to your host works differently. In the following we describe the configuration of VirtualBox.&lt;/p&gt;
 
-&lt;p&gt;If you are using VirtualBox configure the networking of the virtual machine to forward incoming connections to port 2222 of address 127.0.0.1 to the SSH port (=22) of the virtual machine.&lt;/p&gt;
+&lt;p&gt;Configure the networking of the virtual machine to forward incoming connections to port 2222 of address 127.0.0.1 to the SSH port (=22) of the virtual machine:&lt;/p&gt;
 
-&lt;p&gt;Navigate to &lt;strong&gt;Settings &amp;gt; Network &amp;gt; Adapter 1.&lt;/strong&gt; For &lt;strong&gt;Attached to:&lt;/strong&gt; choose &lt;strong&gt;NAT&lt;/strong&gt;. Click on &lt;strong&gt;Port Forwarding&lt;/strong&gt;. Create a rule that maps incoming &lt;strong&gt;TCP&lt;/strong&gt; connections on host IP &lt;strong&gt;127.0.0.1&lt;/strong&gt;, port &lt;strong&gt;2222&lt;/strong&gt; to guest port &lt;strong&gt;22&lt;/strong&gt;.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Navigate to &lt;strong&gt;Settings &amp;gt; Network &amp;gt; Adapter 1.&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;For &lt;strong&gt;Attached to:&lt;/strong&gt; choose &lt;strong&gt;NAT&lt;/strong&gt;.&lt;/li&gt;
+&lt;li&gt;Click on &lt;strong&gt;Port Forwarding&lt;/strong&gt;. Create a rule that maps incoming &lt;strong&gt;TCP&lt;/strong&gt; connections on host IP &lt;strong&gt;127.0.0.1&lt;/strong&gt;, port &lt;strong&gt;2222&lt;/strong&gt; to guest port &lt;strong&gt;22&lt;/strong&gt;.&lt;/li&gt;
+&lt;/ul&gt;
 
-&lt;p&gt;If you want to work on your VM using SSH, it&amp;rsquo;s possible. To do this, you need to install ssh on your VM, (which should already be done during the installations but let&amp;rsquo;s check nonetheless):&lt;/p&gt;
+&lt;p&gt;To connect to your Linux machine via SSH an SSH server needs to run on it. The SSH server should have been installed already when you installed Linux, but let&amp;rsquo;s check nonetheless. Open a command line on your VM and type:&lt;/p&gt;
 
 &lt;pre&gt;&lt;code&gt;$ sudo apt-get update
 $ sudo apt-get install openssh-server 
 &lt;/code&gt;&lt;/pre&gt;
 
-&lt;h4 id=&#34;creating-the-keypairs:b5e789e001cfcd9a18b36ef13da96386&#34;&gt;Creating the keypairs&lt;/h4&gt;
+&lt;h3 id=&#34;create-a-keypair:b5e789e001cfcd9a18b36ef13da96386&#34;&gt;Create a keypair&lt;/h3&gt;
 
-&lt;p&gt;There are two ways to login with ssh:&lt;/p&gt;
+&lt;p&gt;There are generally two ways to log into a machine with SSH:&lt;/p&gt;
 
 &lt;ul&gt;
-&lt;li&gt;Username and password&lt;/li&gt;
-&lt;li&gt;Username and a keypair&lt;/li&gt;
+&lt;li&gt;Authenticate by providing a username and password&lt;/li&gt;
+&lt;li&gt;Authenticate by providing a username and a keypair&lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;p&gt;You need to set a few things up to use a keypair so you will start by using your username and password. You should be able to ssh in your VM like this:&lt;/p&gt;
+&lt;p&gt;Keypairs have a big advantage: they are much harder to crack for an adversary (this improves security a lot). Keypairs can be themselves protected by a password, but this is optional. When using a keypair you can choose to log into a machine without needing to type a password (this decreases security slightly).&lt;/p&gt;
 
-&lt;pre&gt;&lt;code&gt;$ ssh -p 2222 administrator@127.0.0.1
-...
-administrator@127.0.0.1&#39;s password: 
+&lt;p&gt;In this section we describe how to set up authentication with a (passwordless) keypair. Here is an overview of the procedure:&lt;/p&gt;
+
+&lt;ol&gt;
+&lt;li&gt;Log into the Linux VM using username and password.&lt;/li&gt;
+&lt;li&gt;On the Linux VM create an SSH configuration directory and generate a keypair.&lt;/li&gt;
+&lt;li&gt;On the host machine create an SSH configuration directory and transfer the private key of the keypair to the host machine.&lt;/li&gt;
+&lt;li&gt;Use the new keypair to login.&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;In the following we explain the steps in more detail.&lt;/p&gt;
+
+&lt;h4 id=&#34;log-into-the-linux-vm-using-username-and-password:b5e789e001cfcd9a18b36ef13da96386&#34;&gt;Log into the Linux VM using username and password&lt;/h4&gt;
+
+&lt;p&gt;Open a terminal on your host and type:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;    $ ssh -p 2222 administrator@127.0.0.1
 &lt;/code&gt;&lt;/pre&gt;
 
-&lt;blockquote&gt;
-&lt;p&gt;&lt;strong&gt;Note:&lt;/strong&gt; you may see a warning like this the first time you use ssh on a new host:&lt;/p&gt;
+&lt;p&gt;As you are using SSH for the first time to connect to a new host, SSH will print a warning like this:&lt;/p&gt;
 
-&lt;p&gt;RSA key fingerprint is xx:xx:xx:xx:xx:xx:xx:xx:xx:xx:xx:xx:xx.
-    Are you sure you want to continue connecting (yes/no)? yes&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;RSA key fingerprint is xx:xx:xx:xx:xx:xx:xx:xx:xx:xx:xx:xx:xx.
+Are you sure you want to continue connecting (yes/no)? yes
+&lt;/code&gt;&lt;/pre&gt;
 
-&lt;p&gt;If so, just type in &lt;strong&gt;yes&lt;/strong&gt;.&lt;/p&gt;
-&lt;/blockquote&gt;
+&lt;p&gt;This is completely normal, so just type &lt;strong&gt;yes&lt;/strong&gt;.&lt;/p&gt;
 
-&lt;p&gt;If it works, your terminal will look like this:&lt;/p&gt;
+&lt;p&gt;If it works, you will see the command line prompt of the Linux VM, which should look like this:&lt;/p&gt;
 
 &lt;pre&gt;&lt;code&gt;administrator@ubuntu:~$ 
 &lt;/code&gt;&lt;/pre&gt;
 
-&lt;p&gt;You are now connected on your VM by through a ssh tunnel. And now a few steps:&lt;/p&gt;
+&lt;p&gt;You are now logged into the Linux VM via SSH and every command you type in this terminal will be executed on the Linux VM.&lt;/p&gt;
+
+&lt;h4 id=&#34;on-the-linux-vm-create-an-ssh-configuration-directory-and-generate-a-keypair:b5e789e001cfcd9a18b36ef13da96386&#34;&gt;On the Linux VM create an SSH configuration directory and generate a keypair&lt;/h4&gt;
+
+&lt;p&gt;This involves the following steps:&lt;/p&gt;
 
 &lt;ol&gt;
-&lt;li&gt;&lt;p&gt;Create the SSH configuration directory ~/.ssh and protect it&lt;/p&gt;
+&lt;li&gt;&lt;p&gt;Create the SSH configuration directory &lt;code&gt;~/.ssh&lt;/code&gt; and protect it from outside access&lt;/p&gt;
 
 &lt;pre&gt;&lt;code&gt;$ mkdir ~/.ssh
 $ chmod go-rwx ~/.ssh 
 &lt;/code&gt;&lt;/pre&gt;&lt;/li&gt;
 
-&lt;li&gt;&lt;p&gt;Create your new keypair&lt;/p&gt;
+&lt;li&gt;&lt;p&gt;Create a new keypair which will become your personal authentication token. Use your HEIG-VD email address to identify the key.&lt;/p&gt;
 
 &lt;pre&gt;&lt;code&gt;$ ssh-keygen -t rsa -b 4096 -C &amp;quot;your.name@heig-vd.ch&amp;quot;
 Generating public/private rsa key pair.
@@ -261,48 +281,64 @@ The key&#39;s randomart image is:
 |        .+ *.    |
 |        ..+o.    |
 +-----------------+
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Your private key can now be found in the file &lt;code&gt;id_rsa&lt;/code&gt;, your public key is in the file &lt;code&gt;id_rsa.pub&lt;/code&gt;. Both keys are plain text files.&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;You now need to add your public key to the file &lt;code&gt;authorized_keys&lt;/code&gt; (which does not yet exist). Simply copy your public key to a new file called &lt;code&gt;authorized_keys&lt;/code&gt;:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;$ cp ~/.ssh/id_rsa.pub ~/.ssh/authorized_keys
 &lt;/code&gt;&lt;/pre&gt;&lt;/li&gt;
+&lt;/ol&gt;
 
-&lt;li&gt;&lt;p&gt;Add your new key to the authorized_keys file&lt;/p&gt;
+&lt;h4 id=&#34;on-the-host-machine-create-an-ssh-configuration-directory-and-transfer-the-private-key-of-the-keypair-to-the-host-machine:b5e789e001cfcd9a18b36ef13da96386&#34;&gt;On the host machine create an SSH configuration directory and transfer the private key of the keypair to the host machine.&lt;/h4&gt;
 
-&lt;pre&gt;&lt;code&gt;$ nano ~/.ssh/authorized_keys
+&lt;p&gt;On your host machine open a second terminal. Create the SSH configuration directory &lt;code&gt;~/.ssh&lt;/code&gt; and protect it from outside access&lt;/p&gt;
 
+&lt;pre&gt;&lt;code&gt;    $ mkdir ~/.ssh
+    $ chmod go-rwx ~/.ssh 
+&lt;/code&gt;&lt;/pre&gt;
 
-# Paste the content of the id_rsa.pub file (enable copy and paste for your VM)
-# It means that this machine can now be &amp;quot;sshed&amp;quot; by the person who owns the private key.
-&lt;/code&gt;&lt;/pre&gt;&lt;/li&gt;
+&lt;p&gt;To transfer the private key from guest to host we will use your host machine&amp;rsquo;s clipboard (copy and paste):&lt;/p&gt;
 
-&lt;li&gt;&lt;p&gt;Get the private key on your host&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;&lt;p&gt;On the Linux VM display the key using the &lt;code&gt;cat&lt;/code&gt; command:&lt;/p&gt;
 
 &lt;pre&gt;&lt;code&gt;$ cat ~/.ssh/id_rsa
-# Just copy the content of the file with your VM&#39;s clipboard (copy and paste)
-
-
 -----BEGIN RSA PRIVATE KEY-----
 ...............................
 ...............................
 -----END RSA PRIVATE KEY-----
 &lt;/code&gt;&lt;/pre&gt;
 
-&lt;p&gt;Paste the content of this file in a new file in your own ~/.ssh/ directory&lt;/p&gt;
+&lt;p&gt;Select the text and copy it to the clipboard.&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;On the host machine, use the &lt;code&gt;nano&lt;/code&gt; text editor create a new file &lt;code&gt;id_rsa&lt;/code&gt; in the directory &lt;code&gt;~/.ssh&lt;/code&gt;:&lt;/p&gt;
 
 &lt;pre&gt;&lt;code&gt;$ nano ~/.ssh/id_rsa
-# You can change the name of the file if you want
 &lt;/code&gt;&lt;/pre&gt;&lt;/li&gt;
+&lt;/ol&gt;
 
-&lt;li&gt;&lt;p&gt;Login on the machine&lt;/p&gt;
+&lt;p&gt;Paste the content of the clipboard into the editor. Type &lt;strong&gt;Ctrl-O&lt;/strong&gt; to
+save the file and &lt;strong&gt;Ctrl-X&lt;/strong&gt; to exit the editor.&lt;/p&gt;
+
+&lt;ol&gt;
+&lt;li&gt;&lt;p&gt;On the Linux VM you can now log out:&lt;/p&gt;
 
 &lt;pre&gt;&lt;code&gt;$ exit 
 # Will close the ssh connection
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;The following command should now work:&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;ssh -i ~/.ssh/id_rsa -p 2222 administrator@127.0.0.1
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;You no longer need to type in your password.&lt;/p&gt;&lt;/li&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/li&gt;
 &lt;/ol&gt;
+
+&lt;h4 id=&#34;use-the-new-keypair-to-login:b5e789e001cfcd9a18b36ef13da96386&#34;&gt;Use the new keypair to login.&lt;/h4&gt;
+
+&lt;p&gt;You should be able to connect to your Linux VM without needing to specify a password, like this:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;    $ ssh -p 2222 administrator@127.0.0.1
+    Welcome to Ubuntu 14.04.3 LTS (GNU/Linux 3.13.0-44-generic x86_64)
+    [...]
+    administrator@ubuntu:~$ 
+&lt;/code&gt;&lt;/pre&gt;
 </description>
     </item>
     
@@ -316,7 +352,7 @@ The key&#39;s randomart image is:
 
 &lt;h2 id=&#34;motivation:427105df0457cbf0f1fbed8e47f6af1d&#34;&gt;Motivation&lt;/h2&gt;
 
-&lt;p&gt;It is often necessary to work on a different OS. To avoid the hassle of installing a new OS or having different workspaces, creating a virtual machine provides a quick and useful way to do this. This document will show you how to install an Ubuntu Desktop distribution.&lt;/p&gt;
+&lt;p&gt;Developers and system administrators often need to re-create on their personal workstation the server environment they are working on. Servers often run Linux as operating system while for personal workstations Windows or Mac OS X is prevalent. Having a separate workstation for the server OS or installing the server OS via multi-boot is a hassle. Creating a virtual machine provides a quick  way to run a new OS alongside the existing one. This document will show you how to install Ubuntu Linux in a virtual machine.&lt;/p&gt;
 
 &lt;h2 id=&#34;create-an-ubuntu-desktop-vm:427105df0457cbf0f1fbed8e47f6af1d&#34;&gt;Create an Ubuntu Desktop VM&lt;/h2&gt;
 
@@ -327,7 +363,9 @@ The key&#39;s randomart image is:
 &lt;li&gt;Desktop version&lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;p&gt;The main difference is, the Ubuntu server version is meant to be used as a server (who would have guessed) so there is no &lt;a href=&#34;https://en.wikipedia.org/wiki/Graphical_user_interface&#34;&gt;GUI&lt;/a&gt;. The programs and packages are also different, since both versions don&amp;rsquo;t have the same aim (would be unwise to use a desktop version as a server). That&amp;rsquo;s why we recommend that you install the &lt;strong&gt;desktop&lt;/strong&gt; version.&lt;/p&gt;
+&lt;p&gt;The main difference is, the Ubuntu server version is meant to be used on server machines, so there is no &lt;a href=&#34;https://en.wikipedia.org/wiki/Graphical_user_interface&#34;&gt;graphical user interface&lt;/a&gt; whereas the desktop version has a GUI and ist meant to be used on a personal workstation. The server version has fewer packages than the desktop version and is approximately half the size.&lt;/p&gt;
+
+&lt;p&gt;Normally experienced developers and sytem administrators install the server version because they will work on the command line and don&amp;rsquo;t need the overhead of the GUI. As you are only getting started with the command line it is helpful to have the GUI in the beginning, so we recommend you install the &lt;strong&gt;desktop&lt;/strong&gt; version.&lt;/p&gt;
 
 &lt;ol&gt;
 &lt;li&gt;Download Ubuntu Desktop, version 14.04 LTS 64 bit from the &lt;a href=&#34;http://www.ubuntu.com/&#34;&gt;Ubuntu website&lt;/a&gt; or the &lt;a href=&#34;http://mirror.switch.ch/ftp/mirror/ubuntu-cdimage/14.04/&#34;&gt;swiss mirror&lt;/a&gt;. You need to pick the &lt;em&gt;desktop&lt;/em&gt; version, which should be called &lt;em&gt;ubuntu-14.04-desktop-amd64.iso&lt;/em&gt;.&lt;/li&gt;

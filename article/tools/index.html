@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>VirtualBox Tools</title>
+	<title>Integrate your virtual machine with your local machine</title>
   	<meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -60,7 +60,7 @@
 	        <div class="col-lg-8">
 
 	            
-	            <h2><a href="http://iict.github.io/opstools/article/tools">VirtualBox Tools</a></h2>
+	            <h2><a href="http://iict.github.io/opstools/article/tools/">Integrate your virtual machine with your local machine</a></h2>
 	            <p class="lead">
 	                by <a href="http://iict.github.io/opstools/">IICT Team</a>
 	            </p>
@@ -70,11 +70,11 @@
 	            
 	            
 
-<h1 id="customize-your-installation:392b1cfe5865fa09a3eb545085be9682">Customize your installation</h1>
+<h1 id="virtualbox-customizations:392b1cfe5865fa09a3eb545085be9682">VirtualBox customizations</h1>
 
-<h2 id="install-the-virtualbox-tools:392b1cfe5865fa09a3eb545085be9682">Install the VirtualBox Tools</h2>
+<h2 id="install-the-virtualbox-guest-additions:392b1cfe5865fa09a3eb545085be9682">Install the VirtualBox Guest Additions</h2>
 
-<p>By default, a virtualized OS doest not know that it is virtual. It strongly believes that it is installed directly on top of hardware and that it is in total control. Well, that&rsquo;s not true. The VirtualBox tools are meant to be installed on a VM, to enable some options that are not possible otherwise.</p>
+<p>By default, a virtualized OS doest not know that it is running in a virtual machine. It believes that it is installed directly on top of hardware and that it is in total control of the keyboard and mouse, for example. Well, that&rsquo;s not true. The VirtualBox tools are meant to be installed on a VM, to enable some options that are not possible otherwise, like correct handling of the mouse, sharing of files between guest and host and others.</p>
 
 <p>In the menu of VirtualBox -&gt; <strong>Devices</strong> -&gt; <strong>Insert Guest Additions CD Image&hellip;</strong></p>
 
@@ -88,12 +88,13 @@
 </code></pre></li>
 </ul>
 
-<p>You now have support for the fullscreen on your VM. (<strong>Host + f</strong>).</p>
+<p>You now can run the VM in a window with proper handling of the mouse or you can run it in fullscreen mode (<strong>Host + f</strong>).</p>
 
 <h2 id="enable-sharing-of-folders-between-the-linux-vm-and-your-host-machine:392b1cfe5865fa09a3eb545085be9682">Enable sharing of folders between the Linux VM and your host machine</h2>
 
-<p>On the command line of the Linux VM run the following commands and
-answer all questions with the default values:</p>
+<p>Normally, as the VM runs its own operating system, your host machines sees the VM as a completely separate machine. To transfer files between host and guest you would need to transfer the files over the network, for example using a file transfer protocol that is difficult to set up. Luckily there is a simpler solution: VirtualBox offers an option to share a folder between host and guest. This file sharing works similar to network file sharing, but is much easier to set up.</p>
+
+<p>On the command line of the Linux VM run the following commands and answer all questions with the default values:</p>
 
 <pre><code>$ sudo apt-get update
 $ sudo apt-get upgrade
@@ -125,10 +126,7 @@ $ sudo bash /media/cdrom/VBoxLinuxAdditions.run
 $ sudo umount /media/cdrom
 </code></pre>
 
-<p>Share a folder on the host machine: Navigate to Devices &gt; Shared
-Folder Settings&hellip; Click on <strong>Add</strong>. Select the folder you want to
-share, for example your home directory. Give a name under which this
-shared folder should appear to the guest, say <strong>albert.einstein</strong>.</p>
+<p>Share a folder on the host machine: Navigate to <strong>Devices</strong> &gt; <strong>Shared Folder Settings&hellip;</strong> Click on <strong>Add</strong>. Select the folder you want to share, for example your home directory. Give a name under which this shared folder should appear to the guest, say <strong>albert.einstein</strong>.</p>
 
 <ul>
 <li>Enable <strong>Read-only</strong> if you want to prevent accidental modification
@@ -149,13 +147,13 @@ folder:</p>
 <pre><code>$ sudo mount -t vboxsf -o uid=$UID,gid=$(id -g) albert.einstein ~/hostfiles
 </code></pre>
 
-<h2 id="install-an-other-gui-for-your-vm:392b1cfe5865fa09a3eb545085be9682">Install an other GUI for your VM</h2>
+<h2 id="install-an-other-gui-for-your-ubuntu-linux:392b1cfe5865fa09a3eb545085be9682">Install an other GUI for your Ubuntu Linux</h2>
 
-<p>Usually, you wouldn&rsquo;t set a GUI (Graphical User Interface) on a server. Still, the idea here is to make you discover more about Linux and how you can use it. The problem with the default GUI you get with Ubuntu is the fact that it&rsquo;s quite heavy and laggy as a VM. You can pick a different one.</p>
+<p>The GUI you get with Ubuntu (called Unity) tends to run slowly inside a VM. Fortunately in the Linux world you can choose between many different GUIs. Some of them are faster, and some of them try to emulate the look and feel of Windows.</p>
 
-<p>You will find a <a href="https://doc.ubuntu-fr.org/environnements">list of the diffrent GUI for Ubuntu</a> and how to install them. We recommend that you use Xfce or LXDE, both are pretty light and simple to use.</p>
+<p>The creators of Ubuntu maintain a <a href="https://doc.ubuntu-fr.org/environnements">list of the diffrent GUI for Ubuntu</a> and how to install them. We recommend Xfce or LXDE, both are pretty light and simple to use.</p>
 
-<p>You can also have various GUI installed at the same time and pick the one you want, in the login page, there is a white circle next to your name, clicking on it will allow you to choose the one you want.</p>
+<p>You can also have different GUIs installed at the same time and pick the one you want when you log in. In the login page there is a white circle next to your name, clicking on it will allow you to choose the one you want.</p>
 
 <h3 id="installing-xfce:392b1cfe5865fa09a3eb545085be9682">Installing Xfce</h3>
 
@@ -209,19 +207,19 @@ $ sudo reboot
                             <ul class="list-unstyled">
                               
                                 
-                                  <li><a href="http://iict.github.io/opstools/article/troubleshooting">Troubleshooting</a></li>
+                                  <li><a href="http://iict.github.io/opstools/article/troubleshooting/">Troubleshooting</a></li>
                                 
                               
                                 
-                                  <li><a href="http://iict.github.io/opstools/article/tools">VirtualBox Tools</a></li>
+                                  <li><a href="http://iict.github.io/opstools/article/tools/">Integrate your virtual machine with your local machine</a></li>
                                 
                               
                                 
-                                  <li><a href="http://iict.github.io/opstools/article/ssh">Use SSH</a></li>
+                                  <li><a href="http://iict.github.io/opstools/article/ssh/">Use SSH to log into your virtual machine</a></li>
                                 
                               
                                 
-                                  <li><a href="http://iict.github.io/opstools/article/install_linux">Install Linux on a VM</a></li>
+                                  <li><a href="http://iict.github.io/opstools/article/install_linux/">Install Linux on a VM</a></li>
                                 
                               
                                 
