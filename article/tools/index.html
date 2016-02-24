@@ -70,9 +70,25 @@
 	            
 	            
 
-<h1 id="virtualbox-customisations:392b1cfe5865fa09a3eb545085be9682">VirtualBox customisations</h1>
+<p>So you have installed Linux in a VirtualBox VM. In this article we
+describe how you can make the VM easier to use by installing a small
+helper program in Linux, called VirtualBox Guest Additions. This will
+have a number of benefits:</p>
 
-<h2 id="install-the-virtualbox-guest-additions:392b1cfe5865fa09a3eb545085be9682">Install the VirtualBox Guest Additions</h2>
+<ul>
+<li>You can share a folder on your host with the Linux guest to easily
+move files around.</li>
+<li>You can link the clipboards of your host OS and the Linux guest OS
+and copy/paste between host and guest.</li>
+<li>Better handling of mouse and keyboard when switching to the VM.</li>
+</ul>
+
+<p>In the end we also describe how you can test alternative GUIs on
+Linux.</p>
+
+<h2 id="virtualbox-customisations:392b1cfe5865fa09a3eb545085be9682">VirtualBox customisations</h2>
+
+<h3 id="install-the-virtualbox-guest-additions:392b1cfe5865fa09a3eb545085be9682">Install the VirtualBox Guest Additions</h3>
 
 <p>By default, a virtualised OS doest not know that it is running in a virtual machine. It believes that it is installed directly on top of hardware and that it is in total control of the keyboard and mouse, for example. Well, that&rsquo;s not true. The VirtualBox tools are meant to be installed on a VM, to enable some options that are not possible otherwise, like correct handling of the mouse, sharing of files between guest and host and others.</p>
 
@@ -90,15 +106,15 @@
 
 <p>You now can run the VM in a window with proper handling of the mouse or you can run it in fullscreen mode (<strong>Host + f</strong>).</p>
 
-<h2 id="enable-bidirectional-clipboard-copy-paste-between-host-and-guest:392b1cfe5865fa09a3eb545085be9682">Enable bidirectional clipboard (copy &amp; paste between host and guest)</h2>
+<h3 id="enable-bidirectional-clipboard-copy-paste-between-host-and-guest:392b1cfe5865fa09a3eb545085be9682">Enable bidirectional clipboard (copy &amp; paste between host and guest)</h3>
 
 <p>This is a very useful tool that will allow you to share your clipboard between your host and your guest machines. To do this, go to <strong>Devices</strong>, <strong>Shared Clipboard</strong>, <strong>Bidirectional</strong>.</p>
 
 <p>You probably need to install the VirtualBox Guest Additions, as explained in the previous chapter.</p>
 
-<p><strong>Pro tips:</strong> usually, the <em>ctrl+c</em> and <em>ctrl+v</em> do not work well between the host and the guest, use right click copy and right click paste.</p>
+<p><strong>Pro tips:</strong> usually, the key combinations <em>Ctrl+C</em> and <em>Ctrl+V</em> do not work well between the host and the guest, use right-click copy and right-click paste instead.</p>
 
-<h2 id="enable-sharing-of-folders-between-the-linux-vm-and-your-host-machine:392b1cfe5865fa09a3eb545085be9682">Enable sharing of folders between the Linux VM and your host machine</h2>
+<h3 id="enable-sharing-of-folders-between-the-linux-vm-and-your-host-machine:392b1cfe5865fa09a3eb545085be9682">Enable sharing of folders between the Linux VM and your host machine</h3>
 
 <p>Normally, as the VM runs its own operating system, your host machines sees the VM as a completely separate machine. To transfer files between host and guest you would need to transfer the files over the network, for example using a file transfer protocol that is difficult to set up. Luckily there is a simpler solution: VirtualBox offers an option to share a folder between host and guest. This file sharing works similar to network file sharing, but is much easier to set up.</p>
 
@@ -156,7 +172,7 @@ $ sudo adduser &lt;username&gt; vboxsf
 
 <p>You can also have different GUIs installed at the same time and pick the one you want when you log in. In the login page there is a white circle next to your name, clicking on it will allow you to choose the one you want. If this circle is not there, sometimes the icon is somewhere else, like on the right top of the screen.</p>
 
-<h3 id="installing-xfce:392b1cfe5865fa09a3eb545085be9682">Installing Xfce</h3>
+<h4 id="installing-xfce:392b1cfe5865fa09a3eb545085be9682">Installing Xfce</h4>
 
 <p>Install only the desktop environment</p>
 
@@ -166,7 +182,7 @@ $ sudo reboot
 
 <p>You may need to change the keyboard configuration</p>
 
-<h3 id="installing-lxde:392b1cfe5865fa09a3eb545085be9682">Installing LXDE</h3>
+<h4 id="installing-lxde:392b1cfe5865fa09a3eb545085be9682">Installing LXDE</h4>
 
 <pre><code>$ sudo apt-get install lxde 
 $ sudo reboot 
@@ -216,7 +232,7 @@ $ sudo reboot
                                 
                               
                                 
-                                  <li><a href="http://iict.github.io/opstools/article/cli_mounting/">Share folders with your VM using only the command line</a></li>
+                                  <li><a href="http://iict.github.io/opstools/article/cli_mounting/">Share folders with your virtual machine (no GUI)</a></li>
                                 
                               
                                 

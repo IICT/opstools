@@ -59,7 +59,8 @@ yet deduced.&lt;/li&gt;
 cloud for some of the labs. Amazon supports HEIG-VD by a generous
 grant in their &lt;a href=&#34;https://aws.amazon.com/education/&#34;&gt;AWS Educate&lt;/a&gt;
 program. Amazon gives to each HEIG-VD student a credit of $100 to use
-its cloud resources.&lt;/p&gt;
+its cloud resources. In the following we describe how to open an AWS
+account and obtain this credit.&lt;/p&gt;
 
 &lt;p&gt;Amazon designed AWS for companies, not students. When you create an
 account to start using AWS, Amazon requires a credit card that it can
@@ -171,23 +172,28 @@ have received.&lt;/p&gt;&lt;/li&gt;
     </item>
     
     <item>
-      <title>Share folders with your VM using only the command line</title>
+      <title>Share folders with your virtual machine (no GUI)</title>
       <link>http://iict.github.io/opstools/article/cli_mounting/</link>
       <pubDate>Wed, 24 Feb 2016 14:38:03 +0100</pubDate>
       
       <guid>http://iict.github.io/opstools/article/cli_mounting/</guid>
       <description>
 
-&lt;h1 id=&#34;installing-virtualbox-guest-additions-on-a-server-version:c868204690ccb0e42fc6a221cfa023d6&#34;&gt;Installing VirtualBox Guest Additions (on a server version)&lt;/h1&gt;
+&lt;p&gt;When running Linux in a virtual machine it is handy to have a shared
+folder between host and guest to easily move files around. But if the
+Linux in the VM is a server version and does not have a GUI, the automatic
+installtion of VirtualBox Guest Additions does not work any more.&lt;/p&gt;
 
-&lt;p&gt;You need to install the VirtualBox Guest Additions to use different useful tools, like shared folders, mouse integration or the full-screen support. On a server edition though, the only thing we want is the ability to work with shared folders.&lt;/p&gt;
+&lt;h2 id=&#34;installing-virtualbox-guest-additions-on-a-linux-server-version:c868204690ccb0e42fc6a221cfa023d6&#34;&gt;Installing VirtualBox Guest Additions (on a Linux server version)&lt;/h2&gt;
 
-&lt;h2 id=&#34;installing-the-tools:c868204690ccb0e42fc6a221cfa023d6&#34;&gt;Installing the tools&lt;/h2&gt;
+&lt;p&gt;Normally VirtualBox Guest Additions provides a number of useful tools, like shared folders, mouse integration or the full-screen support. When the guest operating system is a Linux server without GUI, we still want them, if only for their ability to establish shared folders between host and guest.&lt;/p&gt;
+
+&lt;h3 id=&#34;installing-the-tools:c868204690ccb0e42fc6a221cfa023d6&#34;&gt;Installing the tools&lt;/h3&gt;
 
 &lt;ol&gt;
-&lt;li&gt;Start by Going in the VirtualBox menu on your VM, go to &lt;strong&gt;Devices&lt;/strong&gt; -&amp;gt; &lt;strong&gt;Insert Guest Additions CD image&amp;hellip;&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Start by going in the VirtualBox menu on your VM, go to &lt;strong&gt;Devices&lt;/strong&gt; -&amp;gt; &lt;strong&gt;Insert Guest Additions CD image&amp;hellip;&lt;/strong&gt;&lt;/p&gt;&lt;/li&gt;
 
-&lt;li&gt;&lt;p&gt;Install the following dependencies :&lt;/p&gt;
+&lt;li&gt;&lt;p&gt;On your guest Linux install the following dependencies :&lt;/p&gt;
 
 &lt;pre&gt;&lt;code&gt;$ sudo apt-get update &amp;amp;&amp;amp; sudo apt-get install dkms build-essential linux-headers-$(uname -r)
 &lt;/code&gt;&lt;/pre&gt;&lt;/li&gt;
@@ -205,7 +211,7 @@ have received.&lt;/p&gt;&lt;/li&gt;
 
 &lt;p&gt;You should see the content of the CD.&lt;/p&gt;&lt;/li&gt;
 
-&lt;li&gt;&lt;p&gt;Install the Guest Additions&lt;/p&gt;
+&lt;li&gt;&lt;p&gt;Install the Guest Additions:&lt;/p&gt;
 
 &lt;pre&gt;&lt;code&gt;$ sudo /media/cdrom/VBoxLinuxAdditions.run
 &lt;/code&gt;&lt;/pre&gt;
@@ -219,20 +225,20 @@ have received.&lt;/p&gt;&lt;/li&gt;
 &lt;p&gt;You can just ignore it.&lt;/p&gt;&lt;/li&gt;
 &lt;/ol&gt;
 
-&lt;h2 id=&#34;shared-folder:c868204690ccb0e42fc6a221cfa023d6&#34;&gt;Shared folder&lt;/h2&gt;
+&lt;h3 id=&#34;mounting-the-shared-folder:c868204690ccb0e42fc6a221cfa023d6&#34;&gt;Mounting the shared folder&lt;/h3&gt;
 
-&lt;p&gt;Having a shared folder is a good way to share stuff between your host and your guest VM.&lt;/p&gt;
+&lt;p&gt;The VirtualBox Guest Additions contain a client program to mount&lt;/p&gt;
 
 &lt;ol&gt;
 &lt;li&gt;On your VirtualBox menu, go to &lt;strong&gt;Devices&lt;/strong&gt; -&amp;gt; &lt;strong&gt;Shared Folder&lt;/strong&gt; -&amp;gt; &lt;strong&gt;Shared Folder Settings&amp;hellip;&lt;/strong&gt;&lt;/li&gt;
 &lt;/ol&gt;
 
-&lt;p&gt;Select the folder you want to use a your share, and select &lt;strong&gt;auto-mount&lt;/strong&gt;.&lt;/p&gt;
+&lt;p&gt;Select the folder on the host you want to share with the guest, and select &lt;strong&gt;auto-mount&lt;/strong&gt;.&lt;/p&gt;
 
 &lt;ol&gt;
-&lt;li&gt;&lt;p&gt;On the VM, type in this command:&lt;/p&gt;
+&lt;li&gt;&lt;p&gt;In the VM, type this command to add the current user to the group &lt;code&gt;vboxsf&lt;/code&gt;:&lt;/p&gt;
 
-&lt;pre&gt;&lt;code&gt;$ sudo adduser &amp;lt;username&amp;gt; vboxsf
+&lt;pre&gt;&lt;code&gt;$ sudo adduser $(whoami) vboxsf
 &lt;/code&gt;&lt;/pre&gt;&lt;/li&gt;
 
 &lt;li&gt;&lt;p&gt;Reboot the VM&lt;/p&gt;
@@ -240,7 +246,7 @@ have received.&lt;/p&gt;&lt;/li&gt;
 &lt;pre&gt;&lt;code&gt;$ sudo reboot
 &lt;/code&gt;&lt;/pre&gt;&lt;/li&gt;
 
-&lt;li&gt;&lt;p&gt;The mount should be done, you can see where it is like this:&lt;/p&gt;
+&lt;li&gt;&lt;p&gt;The shared folder should have been mounted at boot. You can find out where it is mounted like this:&lt;/p&gt;
 
 &lt;pre&gt;&lt;code&gt;$ mount | grep vbox
 &lt;/code&gt;&lt;/pre&gt;&lt;/li&gt;
@@ -526,9 +532,25 @@ have received.&lt;/p&gt;&lt;/li&gt;
       <guid>http://iict.github.io/opstools/article/tools/</guid>
       <description>
 
-&lt;h1 id=&#34;virtualbox-customisations:392b1cfe5865fa09a3eb545085be9682&#34;&gt;VirtualBox customisations&lt;/h1&gt;
+&lt;p&gt;So you have installed Linux in a VirtualBox VM. In this article we
+describe how you can make the VM easier to use by installing a small
+helper program in Linux, called VirtualBox Guest Additions. This will
+have a number of benefits:&lt;/p&gt;
 
-&lt;h2 id=&#34;install-the-virtualbox-guest-additions:392b1cfe5865fa09a3eb545085be9682&#34;&gt;Install the VirtualBox Guest Additions&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;You can share a folder on your host with the Linux guest to easily
+move files around.&lt;/li&gt;
+&lt;li&gt;You can link the clipboards of your host OS and the Linux guest OS
+and copy/paste between host and guest.&lt;/li&gt;
+&lt;li&gt;Better handling of mouse and keyboard when switching to the VM.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;In the end we also describe how you can test alternative GUIs on
+Linux.&lt;/p&gt;
+
+&lt;h2 id=&#34;virtualbox-customisations:392b1cfe5865fa09a3eb545085be9682&#34;&gt;VirtualBox customisations&lt;/h2&gt;
+
+&lt;h3 id=&#34;install-the-virtualbox-guest-additions:392b1cfe5865fa09a3eb545085be9682&#34;&gt;Install the VirtualBox Guest Additions&lt;/h3&gt;
 
 &lt;p&gt;By default, a virtualised OS doest not know that it is running in a virtual machine. It believes that it is installed directly on top of hardware and that it is in total control of the keyboard and mouse, for example. Well, that&amp;rsquo;s not true. The VirtualBox tools are meant to be installed on a VM, to enable some options that are not possible otherwise, like correct handling of the mouse, sharing of files between guest and host and others.&lt;/p&gt;
 
@@ -546,15 +568,15 @@ have received.&lt;/p&gt;&lt;/li&gt;
 
 &lt;p&gt;You now can run the VM in a window with proper handling of the mouse or you can run it in fullscreen mode (&lt;strong&gt;Host + f&lt;/strong&gt;).&lt;/p&gt;
 
-&lt;h2 id=&#34;enable-bidirectional-clipboard-copy-paste-between-host-and-guest:392b1cfe5865fa09a3eb545085be9682&#34;&gt;Enable bidirectional clipboard (copy &amp;amp; paste between host and guest)&lt;/h2&gt;
+&lt;h3 id=&#34;enable-bidirectional-clipboard-copy-paste-between-host-and-guest:392b1cfe5865fa09a3eb545085be9682&#34;&gt;Enable bidirectional clipboard (copy &amp;amp; paste between host and guest)&lt;/h3&gt;
 
 &lt;p&gt;This is a very useful tool that will allow you to share your clipboard between your host and your guest machines. To do this, go to &lt;strong&gt;Devices&lt;/strong&gt;, &lt;strong&gt;Shared Clipboard&lt;/strong&gt;, &lt;strong&gt;Bidirectional&lt;/strong&gt;.&lt;/p&gt;
 
 &lt;p&gt;You probably need to install the VirtualBox Guest Additions, as explained in the previous chapter.&lt;/p&gt;
 
-&lt;p&gt;&lt;strong&gt;Pro tips:&lt;/strong&gt; usually, the &lt;em&gt;ctrl+c&lt;/em&gt; and &lt;em&gt;ctrl+v&lt;/em&gt; do not work well between the host and the guest, use right click copy and right click paste.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Pro tips:&lt;/strong&gt; usually, the key combinations &lt;em&gt;Ctrl+C&lt;/em&gt; and &lt;em&gt;Ctrl+V&lt;/em&gt; do not work well between the host and the guest, use right-click copy and right-click paste instead.&lt;/p&gt;
 
-&lt;h2 id=&#34;enable-sharing-of-folders-between-the-linux-vm-and-your-host-machine:392b1cfe5865fa09a3eb545085be9682&#34;&gt;Enable sharing of folders between the Linux VM and your host machine&lt;/h2&gt;
+&lt;h3 id=&#34;enable-sharing-of-folders-between-the-linux-vm-and-your-host-machine:392b1cfe5865fa09a3eb545085be9682&#34;&gt;Enable sharing of folders between the Linux VM and your host machine&lt;/h3&gt;
 
 &lt;p&gt;Normally, as the VM runs its own operating system, your host machines sees the VM as a completely separate machine. To transfer files between host and guest you would need to transfer the files over the network, for example using a file transfer protocol that is difficult to set up. Luckily there is a simpler solution: VirtualBox offers an option to share a folder between host and guest. This file sharing works similar to network file sharing, but is much easier to set up.&lt;/p&gt;
 
@@ -612,7 +634,7 @@ $ sudo adduser &amp;lt;username&amp;gt; vboxsf
 
 &lt;p&gt;You can also have different GUIs installed at the same time and pick the one you want when you log in. In the login page there is a white circle next to your name, clicking on it will allow you to choose the one you want. If this circle is not there, sometimes the icon is somewhere else, like on the right top of the screen.&lt;/p&gt;
 
-&lt;h3 id=&#34;installing-xfce:392b1cfe5865fa09a3eb545085be9682&#34;&gt;Installing Xfce&lt;/h3&gt;
+&lt;h4 id=&#34;installing-xfce:392b1cfe5865fa09a3eb545085be9682&#34;&gt;Installing Xfce&lt;/h4&gt;
 
 &lt;p&gt;Install only the desktop environment&lt;/p&gt;
 
@@ -622,7 +644,7 @@ $ sudo reboot
 
 &lt;p&gt;You may need to change the keyboard configuration&lt;/p&gt;
 
-&lt;h3 id=&#34;installing-lxde:392b1cfe5865fa09a3eb545085be9682&#34;&gt;Installing LXDE&lt;/h3&gt;
+&lt;h4 id=&#34;installing-lxde:392b1cfe5865fa09a3eb545085be9682&#34;&gt;Installing LXDE&lt;/h4&gt;
 
 &lt;pre&gt;&lt;code&gt;$ sudo apt-get install lxde 
 $ sudo reboot 
@@ -911,7 +933,7 @@ save the file and &lt;strong&gt;Ctrl-X&lt;/strong&gt; to exit the editor.&lt;/p&
 
 &lt;h2 id=&#34;what-is-this-blog:6083a88ee3411b0d17ce02d738f69d47&#34;&gt;What is this blog&lt;/h2&gt;
 
-&lt;p&gt;This blog contains tips and information for students who want to work with Linux, cloud computing, software development or system administration. This information will be useful for those following ADS, AIT and CLD.&lt;/p&gt;
+&lt;p&gt;This blog contains tips and information for students who want to work with Linux, cloud computing, software development or system administration. This information will be useful in particular for those following the ADS, AIT and CLD courses at HEIG-VD.&lt;/p&gt;
 </description>
     </item>
     
