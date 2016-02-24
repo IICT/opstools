@@ -6,8 +6,17 @@
     <description>Recent content in Articles on IICT Ops Tools</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Wed, 24 Feb 2016 13:24:43 +0100</lastBuildDate>
+    <lastBuildDate>Wed, 24 Feb 2016 14:38:03 +0100</lastBuildDate>
     <atom:link href="http://iict.github.io/opstools/article/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>cli_mounting</title>
+      <link>http://iict.github.io/opstools/article/cli_mounting/</link>
+      <pubDate>Wed, 24 Feb 2016 14:38:03 +0100</pubDate>
+      
+      <guid>http://iict.github.io/opstools/article/cli_mounting/</guid>
+      <description></description>
+    </item>
     
     <item>
       <title>Quick guide to Markdown</title>
@@ -101,7 +110,7 @@
    * Maybe this too? 
 &lt;/code&gt;&lt;/pre&gt;
 
-&lt;p&gt;To create a list, put a star, followed by a &lt;space&gt; and your text. To create a new element on the same of the list, just do the same and finally, to indent it, use a tab or 2 &amp;lt;spaces&amp;gt; characters before putting the first star.&lt;/p&gt;
+&lt;p&gt;To create a list, put a star, followed by a &amp;lt;space&amp;gt; and your text. To create a new element on the same of the list, just do the same and finally, to indent it, use a tab or 2 &amp;lt;spaces&amp;gt; characters before putting the first star.&lt;/p&gt;
 
 &lt;pre&gt;&lt;code&gt;* 1
 * 2
@@ -110,24 +119,24 @@
 
 &lt;h3 id=&#34;code:d59f7b4dfecd890f0583fb0bac5a436e&#34;&gt;Code&lt;/h3&gt;
 
-&lt;p&gt;This type of window:&lt;/p&gt;
+&lt;p&gt;This type of &amp;ldquo;box&amp;rdquo;:&lt;/p&gt;
 
 &lt;pre&gt;&lt;code&gt;This one here
 &lt;/code&gt;&lt;/pre&gt;
 
-&lt;p&gt;is used to type in &amp;ldquo;code&amp;rdquo;. We use if for commands for instance:&lt;/p&gt;
+&lt;p&gt;is used to type in &amp;ldquo;code&amp;rdquo;. We use if for commands, for instance:&lt;/p&gt;
 
 &lt;pre&gt;&lt;code&gt;$ sudo reboot 
 &lt;/code&gt;&lt;/pre&gt;
 
-&lt;p&gt;To do so, just start your line with a &amp;lt;tab&amp;gt; or 4 &lt;spaces&gt;.&lt;/p&gt;
+&lt;p&gt;To do so, just start your line with a &amp;lt;tab&amp;gt; or 4 &amp;lt;spaces&amp;gt;. (Always use tab)&lt;/p&gt;
 
 &lt;pre&gt;&lt;code&gt;Not easy to explain 
     new tab
         other tab
 &lt;/code&gt;&lt;/pre&gt;
 
-&lt;p&gt;You can also indent this with other &lt;tab&gt; characters.&lt;/p&gt;
+&lt;p&gt;You can also indent this with other &amp;lt;tab&amp;gt; characters.&lt;/p&gt;
 
 &lt;h3 id=&#34;quote:d59f7b4dfecd890f0583fb0bac5a436e&#34;&gt;Quote&lt;/h3&gt;
 
@@ -186,7 +195,9 @@
 &lt;pre&gt;&lt;code&gt;your_user_name
 &lt;/code&gt;&lt;/pre&gt;
 
-&lt;p&gt;it will give you this: your_user_name (the _ characters will be used to render the &amp;ldquo;user&amp;rdquo; text in italic, because they have not been escaped). We need to give the indication that we want the _ to be interpreted as text. How to do this? We use the escape character, .&lt;/p&gt;
+&lt;p&gt;it will give you this: &lt;strong&gt;your_user_name&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;The _ characters will be used to render the &amp;ldquo;user&amp;rdquo; text in italic, because they have not been escaped. We need to give the indication that we want the _ to be interpreted as text. How to do this? We use the escape character, .&lt;/p&gt;
 
 &lt;pre&gt;&lt;code&gt;your\_user_name 
 &lt;/code&gt;&lt;/pre&gt;
@@ -205,14 +216,14 @@
 &lt;pre&gt;&lt;code&gt;rm -r *march.*
 &lt;/code&gt;&lt;/pre&gt;
 
-&lt;p&gt;rm -r &lt;em&gt;march.&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;rm -r &lt;em&gt;march.&lt;/em&gt;&lt;/strong&gt;&lt;/p&gt;
 
 &lt;p&gt;The stars were not treated as text, so escaping the first star should help, like we did previously.&lt;/p&gt;
 
 &lt;pre&gt;&lt;code&gt;rm -r \*march.* OR rm -r \*march.\*
 &lt;/code&gt;&lt;/pre&gt;
 
-&lt;p&gt;This gives you: rm -r *march.*&lt;/p&gt;
+&lt;p&gt;This gives you: &lt;strong&gt;rm -r *march.*&lt;/strong&gt;&lt;/p&gt;
 
 &lt;p&gt;There are some other cases where you need to escape the escape character itself to print it, but that should be enough information for now :)&lt;/p&gt;
 
@@ -237,16 +248,6 @@
 &lt;ul&gt;
 &lt;li&gt;&lt;a href=&#34;http://alternativeto.net/software/macdown/?platform=linux&#34;&gt;Short list of them&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
-</description>
-    </item>
-    
-    <item>
-      <title>Troubleshooting</title>
-      <link>http://iict.github.io/opstools/article/troubleshooting/</link>
-      <pubDate>Fri, 19 Feb 2016 15:40:30 +0100</pubDate>
-      
-      <guid>http://iict.github.io/opstools/article/troubleshooting/</guid>
-      <description>&lt;p&gt;To come&amp;hellip;&lt;/p&gt;
 </description>
     </item>
     
