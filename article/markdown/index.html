@@ -72,7 +72,7 @@
 
 <h1 id="what-is-markdown:d59f7b4dfecd890f0583fb0bac5a436e">What is Markdown</h1>
 
-<p>Markdown is a very light balise language (like HTML) that is being used by a lot of people. It&rsquo;s fast, effective, really easy to read and compatible pretty much everywhere.</p>
+<p>Markdown is a very lightweight markup language (like HTML) that is being used by a lot of people. It&rsquo;s fast, efficient, really easy to read and compatible pretty much everywhere.</p>
 
 <p>There are many websites and examples where the text is written in Markdown:</p>
 
@@ -96,6 +96,24 @@
 #### h4 
 ...
 </code></pre>
+
+<p>So, for example:</p>
+
+<pre><code># My big title
+## My not so big title
+### My small title
+...
+</code></pre>
+
+<p>will give you:</p>
+
+<h1 id="my-big-title:d59f7b4dfecd890f0583fb0bac5a436e">My big title</h1>
+
+<h2 id="my-not-so-big-title:d59f7b4dfecd890f0583fb0bac5a436e">My not so big title</h2>
+
+<h3 id="my-small-title:d59f7b4dfecd890f0583fb0bac5a436e">My small title</h3>
+
+<p>Etc&hellip;</p>
 
 <p><strong>Note:</strong> be sure to put a &lt;space&gt; between the last # and your first letter. If you don&rsquo;t, it may give you weird results on some browsers.</p>
 
@@ -218,7 +236,7 @@
 
 <h2 id="html:d59f7b4dfecd890f0583fb0bac5a436e">HTML</h2>
 
-<p>Markdown is made to work with HTML, you can type in HTML wherever you want. For instance, there is no support for tables in Markdown, so if you want to create one, you can use html balises.</p>
+<p>Markdown is made to work with HTML, you can type in HTML wherever you want. For instance, there is no support for tables in Markdown, so if you want to create one, you can use html tags.</p>
 
 <pre><code>&lt;table&gt;
     &lt;tr&gt;
@@ -230,7 +248,7 @@
 &lt;table&gt;
 </code></pre>
 
-<p>So be careful, every time you want to write text between <strong>&lt;</strong> and <strong>&gt;</strong> (Like an html balise), it will be interpreted as a HTML balise and may give you strange behaviours&hellip; Unless you escape it!</p>
+<p>So be careful, every time you want to write text between <strong>&lt;</strong> and <strong>&gt;</strong> (Like an html tag), it will be interpreted as a HTML tag and may give you strange behaviours&hellip; Unless you escape it!</p>
 
 <h2 id="escaping-characters:d59f7b4dfecd890f0583fb0bac5a436e">Escaping characters</h2>
 
@@ -270,6 +288,18 @@
 <p>This gives you: <strong>rm -r *march.*</strong></p>
 
 <p>There are some other cases where you need to escape the escape character itself to print it, but that should be enough information for now :)</p>
+
+<p>And also, the same applies to the <strong>&lt;</strong> and <strong>&gt;</strong> characters, if you want to print this:</p>
+
+<pre><code>&lt;my_tag&gt;
+</code></pre>
+
+<p>You have to write it like this:</p>
+
+<pre><code>\&lt;my_tag&gt;
+</code></pre>
+
+<p>So you can see it (otherwise it will considered like a HTML tag and it won&rsquo;t be printed. Even worse, depending on the tag, it may even give you problems, because it will be expecting the closing tag, like <strong>&lt;/my_tag&gt;</strong>.</p>
 
 <h2 id="markdown-tools:d59f7b4dfecd890f0583fb0bac5a436e">Markdown tools</h2>
 
@@ -329,7 +359,7 @@
                             <ul class="list-unstyled">
                               
                                 
-                                  <li><a href="http://iict.github.io/opstools/article/cli_mounting">cli_mounting</a></li>
+                                  <li><a href="http://iict.github.io/opstools/article/cli_mounting">Use mount on Linux Server (no GUI)</a></li>
                                 
                               
                                 
