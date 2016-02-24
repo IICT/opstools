@@ -60,7 +60,7 @@
 	        <div class="col-lg-8">
 
 	            
-	            <h2><a href="http://iict.github.io/opstools/article/cli_mounting/">Use mount on Linux Server (no GUI)</a></h2>
+	            <h2><a href="http://iict.github.io/opstools/article/cli_mounting">Use mount on Linux Server (no GUI)</a></h2>
 	            <p class="lead">
 	                by <a href="http://iict.github.io/opstools/">IICT Team</a>
 	            </p>
@@ -69,6 +69,82 @@
 	            <hr>
 	            
 	            
+
+<h1 id="installing-virtualbox-guest-additions-on-a-server-version:c868204690ccb0e42fc6a221cfa023d6">Installing VirtualBox Guest Additions (on a server version)</h1>
+
+<p>You need to install the VirtualBox Guest Additions to use different useful tools, like shared folders, mouse integration or the full-screen support. On a server edition, the thing we want is the ability to work with shared folders.</p>
+
+<h2 id="installing-the-tools:c868204690ccb0e42fc6a221cfa023d6">Installing the tools</h2>
+
+<ol>
+<li>Start by Going in the VirtualBox menu on your VM, go to <strong>Devices</strong> -&gt; <strong>Insert Guest Additions CD image&hellip;</strong></li>
+
+<li><p>Install the following dependencies :</p>
+
+<pre><code>$ sudo apt-get update &amp;&amp; sudo apt-get install dkms build-essential linux-headers-$(uname -r)
+</code></pre></li>
+
+<li><p>Mount the CD:</p>
+
+<pre><code>$ sudo mount /dev/cdrom /media/cdrom
+# You may have a read-only warning, it's normal, CD are by definition read-only devices.
+</code></pre>
+
+<p>You can test it like so:</p>
+
+<pre><code>$ ls -l /media/cdrom/
+</code></pre>
+
+<p>You should see the content of the CD.</p></li>
+
+<li><p>Install the Guest Additions</p>
+
+<pre><code>$ sudo /media/cdrom/VBoxLinuxAdditions.run
+</code></pre>
+
+<p>You may have this warning:</p>
+
+<pre><code>Installing the Window System drivers ...fail!
+(Could not find the X.Org or XFree86 Window System.)
+</code></pre>
+
+<p>You can just ignore it.</p></li>
+</ol>
+
+<h2 id="shared-folder:c868204690ccb0e42fc6a221cfa023d6">Shared folder</h2>
+
+<p>Having a shared folder is a good way to share stuff between your host and your guest VM.</p>
+
+<ol>
+<li>On your VirtualBox menu, go to <strong>Devices</strong> -&gt; <strong>Shared Folder</strong> -&gt; <strong>Shared Folder Settings&hellip;</strong></li>
+</ol>
+
+<p>Select the folder you want to use a your share, and select <strong>auto-mount</strong>.</p>
+
+<ol>
+<li><p>On the VM, type in this command:</p>
+
+<pre><code>$ sudo adduser &lt;username&gt; vboxsf
+</code></pre></li>
+
+<li><p>Reboot the VM</p>
+
+<pre><code>$ sudo reboot
+</code></pre></li>
+
+<li><p>The mount should be done, you can see where it is like this:</p>
+
+<pre><code>$ mount | grep vbox
+</code></pre></li>
+
+<li><p>You should be able to see the content</p>
+
+<pre><code>$ ls -l /media/sf_VBoxShared (name should be sf_ShareName)
+</code></pre></li>
+</ol>
+
+<p>And you are done.</p>
+
 	            <hr>
 
 	            <div id="disqus_thread"></div>
@@ -105,27 +181,27 @@
                             <ul class="list-unstyled">
                               
                                 
-                                  <li><a href="http://iict.github.io/opstools/article/aws/">Preparation for using the Amazon Web Services (AWS) cloud</a></li>
+                                  <li><a href="http://iict.github.io/opstools/article/aws">Preparation for using the Amazon Web Services (AWS) cloud</a></li>
                                 
                               
                                 
-                                  <li><a href="http://iict.github.io/opstools/article/cli_mounting/">Use mount on Linux Server (no GUI)</a></li>
+                                  <li><a href="http://iict.github.io/opstools/article/cli_mounting">Use mount on Linux Server (no GUI)</a></li>
                                 
                               
                                 
-                                  <li><a href="http://iict.github.io/opstools/article/markdown/">Quick guide to Markdown</a></li>
+                                  <li><a href="http://iict.github.io/opstools/article/markdown">Quick guide to Markdown</a></li>
                                 
                               
                                 
-                                  <li><a href="http://iict.github.io/opstools/article/tools/">Integrate your virtual machine with your local machine</a></li>
+                                  <li><a href="http://iict.github.io/opstools/article/tools">Integrate your virtual machine with your local machine</a></li>
                                 
                               
                                 
-                                  <li><a href="http://iict.github.io/opstools/article/ssh/">Use SSH to log into your virtual machine</a></li>
+                                  <li><a href="http://iict.github.io/opstools/article/ssh">Use SSH to log into your virtual machine</a></li>
                                 
                               
                                 
-                                  <li><a href="http://iict.github.io/opstools/article/install_linux/">Install Linux on a VM</a></li>
+                                  <li><a href="http://iict.github.io/opstools/article/install_linux">Install Linux on a VM</a></li>
                                 
                               
                                 
