@@ -47,6 +47,14 @@
 
 &lt;p&gt;You now can run the VM in a window with proper handling of the mouse or you can run it in fullscreen mode (&lt;strong&gt;Host + f&lt;/strong&gt;).&lt;/p&gt;
 
+&lt;h2 id=&#34;enable-bidirectional-clipboard-copy-paste-between-host-and-guest:392b1cfe5865fa09a3eb545085be9682&#34;&gt;Enable bidirectional clipboard (copy &amp;amp; paste between host and guest)&lt;/h2&gt;
+
+&lt;p&gt;This is a very useful tool that will allow you to share your clipboard between your host and your guest machines. To do this, go to &lt;strong&gt;Devices&lt;/strong&gt;, &lt;strong&gt;Shared Clipboard&lt;/strong&gt;, &lt;strong&gt;Bidirectional&lt;/strong&gt;.&lt;/p&gt;
+
+&lt;p&gt;You probably need to install the VirtualBox Guest Additions, as explained in the previous chapter.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Pro tips:&lt;/strong&gt; usually, the &lt;em&gt;ctrl+c&lt;/em&gt; and &lt;em&gt;ctrl+v&lt;/em&gt; do not work well between the host and the guest, use right click copy and right click paste.&lt;/p&gt;
+
 &lt;h2 id=&#34;enable-sharing-of-folders-between-the-linux-vm-and-your-host-machine:392b1cfe5865fa09a3eb545085be9682&#34;&gt;Enable sharing of folders between the Linux VM and your host machine&lt;/h2&gt;
 
 &lt;p&gt;Normally, as the VM runs its own operating system, your host machines sees the VM as a completely separate machine. To transfer files between host and guest you would need to transfer the files over the network, for example using a file transfer protocol that is difficult to set up. Luckily there is a simpler solution: VirtualBox offers an option to share a folder between host and guest. This file sharing works similar to network file sharing, but is much easier to set up.&lt;/p&gt;
@@ -60,49 +68,42 @@ $ sudo apt-get install dkms
 
 &lt;p&gt;Reboot the VM:&lt;/p&gt;
 
-&lt;pre&gt;&lt;code&gt;$ sudo shutdown -r now
+&lt;pre&gt;&lt;code&gt;$ sudo shutdown -r now (or sudo reboot)
 &lt;/code&gt;&lt;/pre&gt;
 
-&lt;p&gt;Insert into the VM&amp;rsquo;s virtual CD-ROM drive the CD file
-&lt;code&gt;VBoxGuestAdditions.iso&lt;/code&gt;: Navigate to Devices &amp;gt; CD/DVD Devices &amp;gt;
-Choose a virtual CD/DVD disk file&amp;hellip;&lt;/p&gt;
+&lt;p&gt;Navigate to Devices &amp;gt; Insert Guest Additions CD image&amp;hellip; This will mount a CD on your Desktop.&lt;/p&gt;
+
+&lt;p&gt;You can run find the CD on the &lt;em&gt;file explorer&lt;/em&gt; (name may change depending on your Desktop version). You should have something like:&lt;/p&gt;
 
 &lt;ul&gt;
-&lt;li&gt;On Windows:&lt;/li&gt;
-&lt;li&gt;On Mac: Leave the file selection dialog open. Open another finder
-window and navigate to Applications &amp;gt; VirtualBox.app. Bring up the
-context menu ande select &lt;strong&gt;Show package contents&lt;/strong&gt;. Navigate to
-Contents &amp;gt; MacOS &amp;gt; VBoxGuestAdditions.iso. Drag-and-drop this file
-into the open file selection dialog.&lt;/li&gt;
+&lt;li&gt;Open Autorun Prompt&lt;/li&gt;
+&lt;li&gt;Run&lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;p&gt;Install the guest additions:&lt;/p&gt;
+&lt;p&gt;If not, double click on the VBoxLinuxAdditions.sh.&lt;/p&gt;
 
-&lt;pre&gt;&lt;code&gt;$ sudo mount -t iso9660 /dev/cdrom /media/cdrom
-$ sudo bash /media/cdrom/VBoxLinuxAdditions.run
-$ sudo umount /media/cdrom
+&lt;p&gt;This will open a terminal and install some of the needed packages. You can restart your machine after that.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;$ sudo reboot
 &lt;/code&gt;&lt;/pre&gt;
 
-&lt;p&gt;Share a folder on the host machine: Navigate to &lt;strong&gt;Devices&lt;/strong&gt; &amp;gt; &lt;strong&gt;Shared Folder Settings&amp;hellip;&lt;/strong&gt; Click on &lt;strong&gt;Add&lt;/strong&gt;. Select the folder you want to share, for example your home directory. Give a name under which this shared folder should appear to the guest, say &lt;strong&gt;albert.einstein&lt;/strong&gt;.&lt;/p&gt;
+&lt;p&gt;Share a folder on the host machine: Navigate to &lt;strong&gt;Devices&lt;/strong&gt; &amp;gt; &lt;strong&gt;Shared Folder Settings&amp;hellip;&lt;/strong&gt; Click on &lt;strong&gt;Add&lt;/strong&gt;. Select the folder you want to share, let&amp;rsquo;s say you just created a folder called &lt;strong&gt;C:\Users\Your_Name\ADS&lt;/strong&gt; (you can put it wherever you want, like My Documents or your Desktop).&lt;/p&gt;
 
 &lt;ul&gt;
 &lt;li&gt;Enable &lt;strong&gt;Read-only&lt;/strong&gt; if you want to prevent accidental modification
-of your files from Linux.&lt;/li&gt;
+of your files from Linux. (Not recommended if you want to share files from your VM to your host machine).&lt;/li&gt;
 &lt;li&gt;Enable &lt;strong&gt;Auto-mount&lt;/strong&gt;&lt;/li&gt;
 &lt;/ul&gt;
 
 &lt;p&gt;Click &lt;strong&gt;OK&lt;/strong&gt;.&lt;/p&gt;
 
-&lt;p&gt;On the Linux VM create a directory where you want to mount the shared
-folder:&lt;/p&gt;
+&lt;p&gt;Now, on your VM, type in this command (it will add you on the group that can work with the shared folder):&lt;/p&gt;
 
-&lt;pre&gt;&lt;code&gt;$ mkdir ~/hostfiles
+&lt;pre&gt;&lt;code&gt;# Use your username, administrator by default if you followed the guide.
+$ sudo adduser user_name vboxsf
 &lt;/code&gt;&lt;/pre&gt;
 
-&lt;p&gt;Mount the shared folder &lt;code&gt;albert.einstein&lt;/code&gt; on the directory &lt;code&gt;hostfiles&lt;/code&gt;:&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;$ sudo mount -t vboxsf -o uid=$UID,gid=$(id -g) albert.einstein ~/hostfiles
-&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Now you only need to restart your machine, from now on, Ubuntu will auto-mount your shared folder.&lt;/p&gt;
 
 &lt;h2 id=&#34;install-an-other-gui-for-your-ubuntu-linux:392b1cfe5865fa09a3eb545085be9682&#34;&gt;Install an other GUI for your Ubuntu Linux&lt;/h2&gt;
 

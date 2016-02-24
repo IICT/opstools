@@ -60,7 +60,7 @@
 	        <div class="col-lg-8">
 
 	            
-	            <h2><a href="http://iict.github.io/opstools/article/tools/">Integrate your virtual machine with your local machine</a></h2>
+	            <h2><a href="http://iict.github.io/opstools/article/tools">Integrate your virtual machine with your local machine</a></h2>
 	            <p class="lead">
 	                by <a href="http://iict.github.io/opstools/">IICT Team</a>
 	            </p>
@@ -90,6 +90,14 @@
 
 <p>You now can run the VM in a window with proper handling of the mouse or you can run it in fullscreen mode (<strong>Host + f</strong>).</p>
 
+<h2 id="enable-bidirectional-clipboard-copy-paste-between-host-and-guest:392b1cfe5865fa09a3eb545085be9682">Enable bidirectional clipboard (copy &amp; paste between host and guest)</h2>
+
+<p>This is a very useful tool that will allow you to share your clipboard between your host and your guest machines. To do this, go to <strong>Devices</strong>, <strong>Shared Clipboard</strong>, <strong>Bidirectional</strong>.</p>
+
+<p>You probably need to install the VirtualBox Guest Additions, as explained in the previous chapter.</p>
+
+<p><strong>Pro tips:</strong> usually, the <em>ctrl+c</em> and <em>ctrl+v</em> do not work well between the host and the guest, use right click copy and right click paste.</p>
+
 <h2 id="enable-sharing-of-folders-between-the-linux-vm-and-your-host-machine:392b1cfe5865fa09a3eb545085be9682">Enable sharing of folders between the Linux VM and your host machine</h2>
 
 <p>Normally, as the VM runs its own operating system, your host machines sees the VM as a completely separate machine. To transfer files between host and guest you would need to transfer the files over the network, for example using a file transfer protocol that is difficult to set up. Luckily there is a simpler solution: VirtualBox offers an option to share a folder between host and guest. This file sharing works similar to network file sharing, but is much easier to set up.</p>
@@ -103,49 +111,42 @@ $ sudo apt-get install dkms
 
 <p>Reboot the VM:</p>
 
-<pre><code>$ sudo shutdown -r now
+<pre><code>$ sudo shutdown -r now (or sudo reboot)
 </code></pre>
 
-<p>Insert into the VM&rsquo;s virtual CD-ROM drive the CD file
-<code>VBoxGuestAdditions.iso</code>: Navigate to Devices &gt; CD/DVD Devices &gt;
-Choose a virtual CD/DVD disk file&hellip;</p>
+<p>Navigate to Devices &gt; Insert Guest Additions CD image&hellip; This will mount a CD on your Desktop.</p>
+
+<p>You can run find the CD on the <em>file explorer</em> (name may change depending on your Desktop version). You should have something like:</p>
 
 <ul>
-<li>On Windows:</li>
-<li>On Mac: Leave the file selection dialog open. Open another finder
-window and navigate to Applications &gt; VirtualBox.app. Bring up the
-context menu ande select <strong>Show package contents</strong>. Navigate to
-Contents &gt; MacOS &gt; VBoxGuestAdditions.iso. Drag-and-drop this file
-into the open file selection dialog.</li>
+<li>Open Autorun Prompt</li>
+<li>Run</li>
 </ul>
 
-<p>Install the guest additions:</p>
+<p>If not, double click on the VBoxLinuxAdditions.sh.</p>
 
-<pre><code>$ sudo mount -t iso9660 /dev/cdrom /media/cdrom
-$ sudo bash /media/cdrom/VBoxLinuxAdditions.run
-$ sudo umount /media/cdrom
+<p>This will open a terminal and install some of the needed packages. You can restart your machine after that.</p>
+
+<pre><code>$ sudo reboot
 </code></pre>
 
-<p>Share a folder on the host machine: Navigate to <strong>Devices</strong> &gt; <strong>Shared Folder Settings&hellip;</strong> Click on <strong>Add</strong>. Select the folder you want to share, for example your home directory. Give a name under which this shared folder should appear to the guest, say <strong>albert.einstein</strong>.</p>
+<p>Share a folder on the host machine: Navigate to <strong>Devices</strong> &gt; <strong>Shared Folder Settings&hellip;</strong> Click on <strong>Add</strong>. Select the folder you want to share, let&rsquo;s say you just created a folder called <strong>C:\Users\Your_Name\ADS</strong> (you can put it wherever you want, like My Documents or your Desktop).</p>
 
 <ul>
 <li>Enable <strong>Read-only</strong> if you want to prevent accidental modification
-of your files from Linux.</li>
+of your files from Linux. (Not recommended if you want to share files from your VM to your host machine).</li>
 <li>Enable <strong>Auto-mount</strong></li>
 </ul>
 
 <p>Click <strong>OK</strong>.</p>
 
-<p>On the Linux VM create a directory where you want to mount the shared
-folder:</p>
+<p>Now, on your VM, type in this command (it will add you on the group that can work with the shared folder):</p>
 
-<pre><code>$ mkdir ~/hostfiles
+<pre><code># Use your username, administrator by default if you followed the guide.
+$ sudo adduser user_name vboxsf
 </code></pre>
 
-<p>Mount the shared folder <code>albert.einstein</code> on the directory <code>hostfiles</code>:</p>
-
-<pre><code>$ sudo mount -t vboxsf -o uid=$UID,gid=$(id -g) albert.einstein ~/hostfiles
-</code></pre>
+<p>Now you only need to restart your machine, from now on, Ubuntu will auto-mount your shared folder.</p>
 
 <h2 id="install-an-other-gui-for-your-ubuntu-linux:392b1cfe5865fa09a3eb545085be9682">Install an other GUI for your Ubuntu Linux</h2>
 
@@ -207,19 +208,19 @@ $ sudo reboot
                             <ul class="list-unstyled">
                               
                                 
-                                  <li><a href="http://iict.github.io/opstools/article/troubleshooting/">Troubleshooting</a></li>
+                                  <li><a href="http://iict.github.io/opstools/article/troubleshooting">Troubleshooting</a></li>
                                 
                               
                                 
-                                  <li><a href="http://iict.github.io/opstools/article/tools/">Integrate your virtual machine with your local machine</a></li>
+                                  <li><a href="http://iict.github.io/opstools/article/tools">Integrate your virtual machine with your local machine</a></li>
                                 
                               
                                 
-                                  <li><a href="http://iict.github.io/opstools/article/ssh/">Use SSH to log into your virtual machine</a></li>
+                                  <li><a href="http://iict.github.io/opstools/article/ssh">Use SSH to log into your virtual machine</a></li>
                                 
                               
                                 
-                                  <li><a href="http://iict.github.io/opstools/article/install_linux/">Install Linux on a VM</a></li>
+                                  <li><a href="http://iict.github.io/opstools/article/install_linux">Install Linux on a VM</a></li>
                                 
                               
                                 
