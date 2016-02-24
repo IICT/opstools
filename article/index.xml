@@ -6,8 +6,239 @@
     <description>Recent content in Articles on IICT Ops Tools</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Fri, 19 Feb 2016 15:40:30 +0100</lastBuildDate>
+    <lastBuildDate>Wed, 24 Feb 2016 13:24:43 +0100</lastBuildDate>
     <atom:link href="http://iict.github.io/opstools/article/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>Quick guide to Markdown</title>
+      <link>http://iict.github.io/opstools/article/markdown/</link>
+      <pubDate>Wed, 24 Feb 2016 13:24:43 +0100</pubDate>
+      
+      <guid>http://iict.github.io/opstools/article/markdown/</guid>
+      <description>
+
+&lt;h1 id=&#34;what-is-markdown:d59f7b4dfecd890f0583fb0bac5a436e&#34;&gt;What is Markdown&lt;/h1&gt;
+
+&lt;p&gt;Markdown is a very light balise language (like HTML) that is being used by a lot of people. It&amp;rsquo;s fast, effective, really easy to read and compatible pretty much everywhere.&lt;/p&gt;
+
+&lt;p&gt;There are many websites and examples where the text is written in Markdown:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;READMEs and documentation files on github are in Markdown (extension &lt;strong&gt;.md&lt;/strong&gt;)&lt;/li&gt;
+&lt;li&gt;Some of the documentation on Moodle is written in Markdown.&lt;/li&gt;
+&lt;li&gt;This very article is also written in Markdown (and obviously all the other articles on this blog).&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&#34;quick-guide:d59f7b4dfecd890f0583fb0bac5a436e&#34;&gt;Quick guide&lt;/h2&gt;
+
+&lt;p&gt;Here is a quick guide for the syntax of Markdown&lt;/p&gt;
+
+&lt;h3 id=&#34;titles:d59f7b4dfecd890f0583fb0bac5a436e&#34;&gt;Titles&lt;/h3&gt;
+
+&lt;p&gt;To make a title, you need to use the # character. It works like HTML title, h1 is the biggest, then comes h2, then h3&amp;hellip; In Markdown, it&amp;rsquo;s the number of # you put that defines the level:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;# h1
+## h2
+### h3 
+#### h4 
+...
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;&lt;strong&gt;Note:&lt;/strong&gt; be sure to put a &amp;lt;space&amp;gt; between the last # and your first letter. If you don&amp;rsquo;t, it may give you weird results on some browsers.&lt;/p&gt;
+
+&lt;h3 id=&#34;text-modification:d59f7b4dfecd890f0583fb0bac5a436e&#34;&gt;Text modification&lt;/h3&gt;
+
+&lt;p&gt;These modifications would be &lt;strong&gt;this&lt;/strong&gt; or &lt;em&gt;this&lt;/em&gt;. Once again, to do this in Markdown, it&amp;rsquo;s really easy.&lt;/p&gt;
+
+&lt;h4 id=&#34;bold:d59f7b4dfecd890f0583fb0bac5a436e&#34;&gt;Bold&lt;/h4&gt;
+
+&lt;pre&gt;&lt;code&gt;**Your text** 
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;or&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;__Your text__
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Both of these will give the same result.&lt;/p&gt;
+
+&lt;h4 id=&#34;italic:d59f7b4dfecd890f0583fb0bac5a436e&#34;&gt;Italic&lt;/h4&gt;
+
+&lt;pre&gt;&lt;code&gt;*Your text*
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;or&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;_Your text_
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Quite easy.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Note:&lt;/strong&gt; Usually, we want to separate the special characters and the text with a &amp;lt;space&amp;gt;, like with titles, here we do the opposite. We want the text to be right after the character!&lt;/p&gt;
+
+&lt;h3 id=&#34;lists:d59f7b4dfecd890f0583fb0bac5a436e&#34;&gt;Lists&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;This&lt;/li&gt;
+&lt;li&gt;Or this
+
+&lt;ul&gt;
+&lt;li&gt;Or that&lt;/li&gt;
+&lt;li&gt;And that too
+
+&lt;ul&gt;
+&lt;li&gt;Maybe this too?&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;How to do this? Once again, it&amp;rsquo;s simple, it&amp;rsquo;s the &lt;strong&gt;*&lt;/strong&gt; character.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;* This
+* Or this 
+ * Or that
+ * And that too
+   * Maybe this too? 
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;To create a list, put a star, followed by a &lt;space&gt; and your text. To create a new element on the same of the list, just do the same and finally, to indent it, use a tab or 2 &amp;lt;spaces&amp;gt; characters before putting the first star.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;* 1
+* 2
+  * 2.5 &amp;lt;-- Tab or two spaces before the star 
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3 id=&#34;code:d59f7b4dfecd890f0583fb0bac5a436e&#34;&gt;Code&lt;/h3&gt;
+
+&lt;p&gt;This type of window:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;This one here
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;is used to type in &amp;ldquo;code&amp;rdquo;. We use if for commands for instance:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;$ sudo reboot 
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;To do so, just start your line with a &amp;lt;tab&amp;gt; or 4 &lt;spaces&gt;.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;Not easy to explain 
+    new tab
+        other tab
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;You can also indent this with other &lt;tab&gt; characters.&lt;/p&gt;
+
+&lt;h3 id=&#34;quote:d59f7b4dfecd890f0583fb0bac5a436e&#34;&gt;Quote&lt;/h3&gt;
+
+&lt;p&gt;This is a quote:&lt;/p&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;Hey, I am a quote&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;To create this, just start your line with &lt;strong&gt;&amp;gt;&lt;/strong&gt;.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;&amp;gt; a quote
+&amp;gt; a second quote
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3 id=&#34;images-and-links:d59f7b4dfecd890f0583fb0bac5a436e&#34;&gt;Images and links&lt;/h3&gt;
+
+&lt;p&gt;You can add images and links in your documents with these commands:&lt;/p&gt;
+
+&lt;h4 id=&#34;link:d59f7b4dfecd890f0583fb0bac5a436e&#34;&gt;Link&lt;/h4&gt;
+
+&lt;pre&gt;&lt;code&gt;[Descrition](http://your_url.ch)
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h4 id=&#34;image:d59f7b4dfecd890f0583fb0bac5a436e&#34;&gt;Image&lt;/h4&gt;
+
+&lt;pre&gt;&lt;code&gt;![Description](http://your_image.png)
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Obviously, you can create absolute or relatives links, meaning you can link something by it&amp;rsquo;s url or in your working directory, like this:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;# Your image is in the &amp;quot;img&amp;quot; folder
+![My super image](./img/super_image.png)
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h2 id=&#34;html:d59f7b4dfecd890f0583fb0bac5a436e&#34;&gt;HTML&lt;/h2&gt;
+
+&lt;p&gt;Markdown is made to work with HTML, you can type in HTML wherever you want. For instance, there is no support for tables in Markdown, so if you want to create one, you can use html balises.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;&amp;lt;table&amp;gt;
+    &amp;lt;tr&amp;gt;
+        &amp;lt;th&amp;gt;header1&amp;lt;/th&amp;gt;
+    &amp;lt;/tr&amp;gt;
+    &amp;lt;tr&amp;gt;
+        &amp;lt;td&amp;gt;Content1&amp;lt;/td&amp;gt;
+    &amp;lt;/tr&amp;gt;
+&amp;lt;table&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;So be careful, every time you want to write text between &lt;strong&gt;&amp;lt;&lt;/strong&gt; and &lt;strong&gt;&amp;gt;&lt;/strong&gt; (Like an html balise), it will be interpreted as a HTML balise and may give you strange behaviours&amp;hellip; Unless you escape it!&lt;/p&gt;
+
+&lt;h2 id=&#34;escaping-characters:d59f7b4dfecd890f0583fb0bac5a436e&#34;&gt;Escaping characters&lt;/h2&gt;
+
+&lt;p&gt;You should have noticed, Markdown is really easy, we work a lot with tabulations, *, and _. But what happens when you write something like:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;your_user_name
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;it will give you this: your_user_name (the _ characters will be used to render the &amp;ldquo;user&amp;rdquo; text in italic, because they have not been escaped). We need to give the indication that we want the _ to be interpreted as text. How to do this? We use the escape character, .&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;your\_user_name 
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;will give you: &lt;strong&gt;your_user_name&lt;/strong&gt;.&lt;/p&gt;
+
+&lt;p&gt;We could obviously also escape the second one:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;your\_user\_name
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;but it&amp;rsquo;s not necessary, because a simple _ will be interpreted as text anyway.&lt;/p&gt;
+
+&lt;p&gt;The same happens when you want to use a star, let&amp;rsquo;s say:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;rm -r *march.*
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;rm -r &lt;em&gt;march.&lt;/em&gt;&lt;/p&gt;
+
+&lt;p&gt;The stars were not treated as text, so escaping the first star should help, like we did previously.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;rm -r \*march.* OR rm -r \*march.\*
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;This gives you: rm -r *march.*&lt;/p&gt;
+
+&lt;p&gt;There are some other cases where you need to escape the escape character itself to print it, but that should be enough information for now :)&lt;/p&gt;
+
+&lt;h2 id=&#34;markdown-tools:d59f7b4dfecd890f0583fb0bac5a436e&#34;&gt;Markdown tools&lt;/h2&gt;
+
+&lt;p&gt;Here is a short list of Markdown editors you should use:&lt;/p&gt;
+
+&lt;p&gt;Windows:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;http://markdownpad.com/&#34;&gt;Markdown pad&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Mac:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;http://macdown.uranusjr.com/&#34;&gt;MacDown&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Linux:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;http://alternativeto.net/software/macdown/?platform=linux&#34;&gt;Short list of them&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+    </item>
     
     <item>
       <title>Troubleshooting</title>
@@ -27,11 +258,11 @@
       <guid>http://iict.github.io/opstools/article/tools/</guid>
       <description>
 
-&lt;h1 id=&#34;virtualbox-customizations:392b1cfe5865fa09a3eb545085be9682&#34;&gt;VirtualBox customizations&lt;/h1&gt;
+&lt;h1 id=&#34;virtualbox-customisations:392b1cfe5865fa09a3eb545085be9682&#34;&gt;VirtualBox customisations&lt;/h1&gt;
 
 &lt;h2 id=&#34;install-the-virtualbox-guest-additions:392b1cfe5865fa09a3eb545085be9682&#34;&gt;Install the VirtualBox Guest Additions&lt;/h2&gt;
 
-&lt;p&gt;By default, a virtualized OS doest not know that it is running in a virtual machine. It believes that it is installed directly on top of hardware and that it is in total control of the keyboard and mouse, for example. Well, that&amp;rsquo;s not true. The VirtualBox tools are meant to be installed on a VM, to enable some options that are not possible otherwise, like correct handling of the mouse, sharing of files between guest and host and others.&lt;/p&gt;
+&lt;p&gt;By default, a virtualised OS doest not know that it is running in a virtual machine. It believes that it is installed directly on top of hardware and that it is in total control of the keyboard and mouse, for example. Well, that&amp;rsquo;s not true. The VirtualBox tools are meant to be installed on a VM, to enable some options that are not possible otherwise, like correct handling of the mouse, sharing of files between guest and host and others.&lt;/p&gt;
 
 &lt;p&gt;In the menu of VirtualBox -&amp;gt; &lt;strong&gt;Devices&lt;/strong&gt; -&amp;gt; &lt;strong&gt;Insert Guest Additions CD Image&amp;hellip;&lt;/strong&gt;&lt;/p&gt;
 
@@ -71,16 +302,16 @@ $ sudo apt-get install dkms
 &lt;pre&gt;&lt;code&gt;$ sudo shutdown -r now (or sudo reboot)
 &lt;/code&gt;&lt;/pre&gt;
 
-&lt;p&gt;Navigate to Devices &amp;gt; Insert Guest Additions CD image&amp;hellip; This will mount a CD on your Desktop.&lt;/p&gt;
+&lt;p&gt;Navigate to &lt;strong&gt;Devices&lt;/strong&gt; &amp;gt; &lt;strong&gt;Insert Guest Additions CD image&amp;hellip;&lt;/strong&gt; This will mount a CD on your Desktop.&lt;/p&gt;
 
 &lt;p&gt;You can run find the CD on the &lt;em&gt;file explorer&lt;/em&gt; (name may change depending on your Desktop version). You should have something like:&lt;/p&gt;
 
 &lt;ul&gt;
 &lt;li&gt;Open Autorun Prompt&lt;/li&gt;
-&lt;li&gt;Run&lt;/li&gt;
+&lt;li&gt;Run Program / script&lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;p&gt;If not, double click on the VBoxLinuxAdditions.sh.&lt;/p&gt;
+&lt;p&gt;If not, double click on the &lt;strong&gt;VBoxLinuxAdditions.sh&lt;/strong&gt;.&lt;/p&gt;
 
 &lt;p&gt;This will open a terminal and install some of the needed packages. You can restart your machine after that.&lt;/p&gt;
 
@@ -100,7 +331,7 @@ of your files from Linux. (Not recommended if you want to share files from your 
 &lt;p&gt;Now, on your VM, type in this command (it will add you on the group that can work with the shared folder):&lt;/p&gt;
 
 &lt;pre&gt;&lt;code&gt;# Use your username, administrator by default if you followed the guide.
-$ sudo adduser user_name vboxsf
+$ sudo adduser &amp;lt;username&amp;gt; vboxsf
 &lt;/code&gt;&lt;/pre&gt;
 
 &lt;p&gt;Now you only need to restart your machine, from now on, Ubuntu will auto-mount your shared folder.&lt;/p&gt;
@@ -109,9 +340,9 @@ $ sudo adduser user_name vboxsf
 
 &lt;p&gt;The GUI you get with Ubuntu (called Unity) tends to run slowly inside a VM. Fortunately in the Linux world you can choose between many different GUIs. Some of them are faster, and some of them try to emulate the look and feel of Windows.&lt;/p&gt;
 
-&lt;p&gt;The creators of Ubuntu maintain a &lt;a href=&#34;https://doc.ubuntu-fr.org/environnements&#34;&gt;list of the diffrent GUI for Ubuntu&lt;/a&gt; and how to install them. We recommend Xfce or LXDE, both are pretty light and simple to use.&lt;/p&gt;
+&lt;p&gt;The creators of Ubuntu maintain a &lt;a href=&#34;https://doc.ubuntu-fr.org/environnements&#34;&gt;list of the different GUI for Ubuntu&lt;/a&gt; and how to install them. We recommend Xfce or LXDE, both are pretty light and simple to use.&lt;/p&gt;
 
-&lt;p&gt;You can also have different GUIs installed at the same time and pick the one you want when you log in. In the login page there is a white circle next to your name, clicking on it will allow you to choose the one you want.&lt;/p&gt;
+&lt;p&gt;You can also have different GUIs installed at the same time and pick the one you want when you log in. In the login page there is a white circle next to your name, clicking on it will allow you to choose the one you want. If this circle is not there, sometimes the icon is somewhere else, like on the right top of the screen.&lt;/p&gt;
 
 &lt;h3 id=&#34;installing-xfce:392b1cfe5865fa09a3eb545085be9682&#34;&gt;Installing Xfce&lt;/h3&gt;
 

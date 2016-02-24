@@ -1,0 +1,390 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Quick guide to Markdown</title>
+  	<meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <link href="http://iict.github.io/opstools/static/css/bootstrap.min.css" rel="stylesheet">
+    <link href="http://iict.github.io/opstools/static/css/heig-cloud-home.css" rel="stylesheet">
+    <link rel="icon" type="image/png" href="http://iict.github.io/opstools/static/img/favicon.png" />
+
+</head>
+<body>
+
+<div id="fb-root"></div>
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) return;
+  js = d.createElement(s); js.id = id;
+  js.src = "//connect.facebook.net/fr_FR/sdk.js#xfbml=1&version=v2.5";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
+
+
+     
+    <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+        <div class="container">
+            
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="http://iict.github.io/opstools/">IICT Ops Tools</a>
+            </div>
+            
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav">
+                    <li><a href="http://iict.github.io/opstools/">Home</a></li>
+                    <li><a href="http://iict.github.io/opstools/article/">Articles</a></li>
+                    <li><a href="http://iict.github.io/opstools/about/">About</a></li>
+                    <li><a href="http://www.heig-vd.ch">HEIG-VD website</a></li>
+                </ul>
+            </div>
+            
+        </div>
+        
+    </nav>
+
+    
+	<div class="container">
+	    <div class="row">
+
+	        
+	        <div class="col-lg-8">
+
+	            
+	            <h2><a href="http://iict.github.io/opstools/article/markdown">Quick guide to Markdown</a></h2>
+	            <p class="lead">
+	                by <a href="http://iict.github.io/opstools/">IICT Team</a>
+	            </p>
+	            <p><span class="glyphicon glyphicon-time"></span> Posted on Wed, Feb 24, 2016</p>
+
+	            <hr>
+	            
+	            
+
+<h1 id="what-is-markdown:d59f7b4dfecd890f0583fb0bac5a436e">What is Markdown</h1>
+
+<p>Markdown is a very light balise language (like HTML) that is being used by a lot of people. It&rsquo;s fast, effective, really easy to read and compatible pretty much everywhere.</p>
+
+<p>There are many websites and examples where the text is written in Markdown:</p>
+
+<ul>
+<li>READMEs and documentation files on github are in Markdown (extension <strong>.md</strong>)</li>
+<li>Some of the documentation on Moodle is written in Markdown.</li>
+<li>This very article is also written in Markdown (and obviously all the other articles on this blog).</li>
+</ul>
+
+<h2 id="quick-guide:d59f7b4dfecd890f0583fb0bac5a436e">Quick guide</h2>
+
+<p>Here is a quick guide for the syntax of Markdown</p>
+
+<h3 id="titles:d59f7b4dfecd890f0583fb0bac5a436e">Titles</h3>
+
+<p>To make a title, you need to use the # character. It works like HTML title, h1 is the biggest, then comes h2, then h3&hellip; In Markdown, it&rsquo;s the number of # you put that defines the level:</p>
+
+<pre><code># h1
+## h2
+### h3 
+#### h4 
+...
+</code></pre>
+
+<p><strong>Note:</strong> be sure to put a &lt;space&gt; between the last # and your first letter. If you don&rsquo;t, it may give you weird results on some browsers.</p>
+
+<h3 id="text-modification:d59f7b4dfecd890f0583fb0bac5a436e">Text modification</h3>
+
+<p>These modifications would be <strong>this</strong> or <em>this</em>. Once again, to do this in Markdown, it&rsquo;s really easy.</p>
+
+<h4 id="bold:d59f7b4dfecd890f0583fb0bac5a436e">Bold</h4>
+
+<pre><code>**Your text** 
+</code></pre>
+
+<p>or</p>
+
+<pre><code>__Your text__
+</code></pre>
+
+<p>Both of these will give the same result.</p>
+
+<h4 id="italic:d59f7b4dfecd890f0583fb0bac5a436e">Italic</h4>
+
+<pre><code>*Your text*
+</code></pre>
+
+<p>or</p>
+
+<pre><code>_Your text_
+</code></pre>
+
+<p>Quite easy.</p>
+
+<p><strong>Note:</strong> Usually, we want to separate the special characters and the text with a &lt;space&gt;, like with titles, here we do the opposite. We want the text to be right after the character!</p>
+
+<h3 id="lists:d59f7b4dfecd890f0583fb0bac5a436e">Lists</h3>
+
+<ul>
+<li>This</li>
+<li>Or this
+
+<ul>
+<li>Or that</li>
+<li>And that too
+
+<ul>
+<li>Maybe this too?</li>
+</ul></li>
+</ul></li>
+</ul>
+
+<p>How to do this? Once again, it&rsquo;s simple, it&rsquo;s the <strong>*</strong> character.</p>
+
+<pre><code>* This
+* Or this 
+ * Or that
+ * And that too
+   * Maybe this too? 
+</code></pre>
+
+<p>To create a list, put a star, followed by a <space> and your text. To create a new element on the same of the list, just do the same and finally, to indent it, use a tab or 2 &lt;spaces&gt; characters before putting the first star.</p>
+
+<pre><code>* 1
+* 2
+  * 2.5 &lt;-- Tab or two spaces before the star 
+</code></pre>
+
+<h3 id="code:d59f7b4dfecd890f0583fb0bac5a436e">Code</h3>
+
+<p>This type of window:</p>
+
+<pre><code>This one here
+</code></pre>
+
+<p>is used to type in &ldquo;code&rdquo;. We use if for commands for instance:</p>
+
+<pre><code>$ sudo reboot 
+</code></pre>
+
+<p>To do so, just start your line with a &lt;tab&gt; or 4 <spaces>.</p>
+
+<pre><code>Not easy to explain 
+    new tab
+        other tab
+</code></pre>
+
+<p>You can also indent this with other <tab> characters.</p>
+
+<h3 id="quote:d59f7b4dfecd890f0583fb0bac5a436e">Quote</h3>
+
+<p>This is a quote:</p>
+
+<blockquote>
+<p>Hey, I am a quote</p>
+</blockquote>
+
+<p>To create this, just start your line with <strong>&gt;</strong>.</p>
+
+<pre><code>&gt; a quote
+&gt; a second quote
+</code></pre>
+
+<h3 id="images-and-links:d59f7b4dfecd890f0583fb0bac5a436e">Images and links</h3>
+
+<p>You can add images and links in your documents with these commands:</p>
+
+<h4 id="link:d59f7b4dfecd890f0583fb0bac5a436e">Link</h4>
+
+<pre><code>[Descrition](http://your_url.ch)
+</code></pre>
+
+<h4 id="image:d59f7b4dfecd890f0583fb0bac5a436e">Image</h4>
+
+<pre><code>![Description](http://your_image.png)
+</code></pre>
+
+<p>Obviously, you can create absolute or relatives links, meaning you can link something by it&rsquo;s url or in your working directory, like this:</p>
+
+<pre><code># Your image is in the &quot;img&quot; folder
+![My super image](./img/super_image.png)
+</code></pre>
+
+<h2 id="html:d59f7b4dfecd890f0583fb0bac5a436e">HTML</h2>
+
+<p>Markdown is made to work with HTML, you can type in HTML wherever you want. For instance, there is no support for tables in Markdown, so if you want to create one, you can use html balises.</p>
+
+<pre><code>&lt;table&gt;
+    &lt;tr&gt;
+        &lt;th&gt;header1&lt;/th&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+        &lt;td&gt;Content1&lt;/td&gt;
+    &lt;/tr&gt;
+&lt;table&gt;
+</code></pre>
+
+<p>So be careful, every time you want to write text between <strong>&lt;</strong> and <strong>&gt;</strong> (Like an html balise), it will be interpreted as a HTML balise and may give you strange behaviours&hellip; Unless you escape it!</p>
+
+<h2 id="escaping-characters:d59f7b4dfecd890f0583fb0bac5a436e">Escaping characters</h2>
+
+<p>You should have noticed, Markdown is really easy, we work a lot with tabulations, *, and _. But what happens when you write something like:</p>
+
+<pre><code>your_user_name
+</code></pre>
+
+<p>it will give you this: your_user_name (the _ characters will be used to render the &ldquo;user&rdquo; text in italic, because they have not been escaped). We need to give the indication that we want the _ to be interpreted as text. How to do this? We use the escape character, .</p>
+
+<pre><code>your\_user_name 
+</code></pre>
+
+<p>will give you: <strong>your_user_name</strong>.</p>
+
+<p>We could obviously also escape the second one:</p>
+
+<pre><code>your\_user\_name
+</code></pre>
+
+<p>but it&rsquo;s not necessary, because a simple _ will be interpreted as text anyway.</p>
+
+<p>The same happens when you want to use a star, let&rsquo;s say:</p>
+
+<pre><code>rm -r *march.*
+</code></pre>
+
+<p>rm -r <em>march.</em></p>
+
+<p>The stars were not treated as text, so escaping the first star should help, like we did previously.</p>
+
+<pre><code>rm -r \*march.* OR rm -r \*march.\*
+</code></pre>
+
+<p>This gives you: rm -r *march.*</p>
+
+<p>There are some other cases where you need to escape the escape character itself to print it, but that should be enough information for now :)</p>
+
+<h2 id="markdown-tools:d59f7b4dfecd890f0583fb0bac5a436e">Markdown tools</h2>
+
+<p>Here is a short list of Markdown editors you should use:</p>
+
+<p>Windows:</p>
+
+<ul>
+<li><a href="http://markdownpad.com/">Markdown pad</a></li>
+</ul>
+
+<p>Mac:</p>
+
+<ul>
+<li><a href="http://macdown.uranusjr.com/">MacDown</a></li>
+</ul>
+
+<p>Linux:</p>
+
+<ul>
+<li><a href="http://alternativeto.net/software/macdown/?platform=linux">Short list of them</a></li>
+</ul>
+
+	            <hr>
+
+	            <div id="disqus_thread"></div>
+				<script>
+				    
+
+				    
+
+
+
+				    (function() {  
+				        var d = document, s = d.createElement('script');
+				        
+				        s.src = '//iictopstools.disqus.com/embed.js';
+				        
+				        s.setAttribute('data-timestamp', +new Date());
+				        (d.head || d.body).appendChild(s);
+				    })();
+				</script>
+				<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a></noscript>
+
+	        </div>
+
+
+
+
+            <div class="col-md-4">
+
+                
+                <div class="well">
+                    <h4>Last posts</h4>
+                    <div class="row">
+                        <div class="col-lg-6">
+                            <ul class="list-unstyled">
+                              
+                                
+                                  <li><a href="http://iict.github.io/opstools/article/markdown">Quick guide to Markdown</a></li>
+                                
+                              
+                                
+                                  <li><a href="http://iict.github.io/opstools/article/troubleshooting">Troubleshooting</a></li>
+                                
+                              
+                                
+                                  <li><a href="http://iict.github.io/opstools/article/tools">Integrate your virtual machine with your local machine</a></li>
+                                
+                              
+                                
+                                  <li><a href="http://iict.github.io/opstools/article/ssh">Use SSH to log into your virtual machine</a></li>
+                                
+                              
+                                
+                                  <li><a href="http://iict.github.io/opstools/article/install_linux">Install Linux on a VM</a></li>
+                                
+                              
+                                
+                              
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-lg-6">
+                            <ul class="list-unstyled">
+                            <li><strong><a href="http://iict.github.io/opstools/article/">See all articles</a></strong></li>
+                            </ul>
+                        </div>
+                    </div>
+                    
+                </div>
+
+                
+                <div class="well">
+                    <h4>Social</h4>
+                    <div class="fb-page" data-href="https://www.facebook.com/HEIGVD/" data-small-header="false" data-adapt-container-width="true" data-hide-cover="false" data-show-facepile="true"><div class="fb-xfbml-parse-ignore"><blockquote cite="https://www.facebook.com/HEIGVD/"><a href="https://www.facebook.com/HEIGVD/">HEIG-VD (Haute Ecole d&#039;Ingénierie et de Gestion du Canton de Vaud)</a></blockquote></div></div>
+                </div>
+
+            </div>
+        </div>
+
+        <footer>
+            <div class="row">
+                <div class="col-lg-12">
+                	<p><a href="#top">Go back to the top</a></p>
+                    <p>Copyright &copy; HEIG-VD, 2015. Content generated with <a href="http://gohugo.io/">Hugo</a>.</p>
+                </div>
+                
+            </div>
+            
+        </footer>
+
+    </div>
+    <script src="http://iict.github.io/opstools/static/js/jquery.js"></script>
+
+    
+    <script src="http://iict.github.io/opstools/static/js/bootstrap.min.js"></script>
+</body>
+</html>
