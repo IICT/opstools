@@ -27,6 +27,8 @@ using the procedure described in the following.&lt;/p&gt;
 another amount than $0.00 &lt;strong&gt;something is very wrong&lt;/strong&gt;, because you
 spent all your credit. Talk immediately to the assistant.&lt;/p&gt;
 
+&lt;p&gt;&lt;img src=&#34;http://iict.github.io/opstools/static/img/aws_expenses/dashboard.png&#34; alt=&#34;Dashboard&#34; /&gt;&lt;/p&gt;
+
 &lt;ul&gt;
 &lt;li&gt;&lt;p&gt;To see &lt;strong&gt;how much credit you spent this month&lt;/strong&gt; click on &lt;strong&gt;Bills&lt;/strong&gt; in
 the left menu bar. Under the &lt;strong&gt;Expand All&lt;/strong&gt; button you will find in
@@ -39,6 +41,8 @@ small print a sentence like&lt;/p&gt;
 
 &lt;p&gt;This shows you how much credit you spent for the current month.&lt;/p&gt;
 
+&lt;p&gt;&lt;img src=&#34;http://iict.github.io/opstools/static/img/aws_expenses/bills.png&#34; alt=&#34;Bills&#34; /&gt;&lt;/p&gt;
+
 &lt;ul&gt;
 &lt;li&gt;To see how much of your credit remains overall, click on &lt;strong&gt;Credits&lt;/strong&gt;
 in the left menu bar. The credit that appears under &lt;strong&gt;Credit
@@ -46,6 +50,8 @@ Remaining&lt;/strong&gt; is the credit that remained &lt;strong&gt;at the beginn
 month&lt;/strong&gt;. The credit that you used during the current month is not
 yet deduced.&lt;/li&gt;
 &lt;/ul&gt;
+
+&lt;p&gt;&lt;img src=&#34;http://iict.github.io/opstools/static/img/aws_expenses/credits.png&#34; alt=&#34;Credits&#34; /&gt;&lt;/p&gt;
 </description>
     </item>
     
@@ -98,7 +104,7 @@ change the default selection &lt;strong&gt;Basic (free)&lt;/strong&gt;. Develope
 is not covered by AWS Educate and you would have to pay out of
 your your own pocket.&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&#34;http://iict.github.io/opstools/static/img/AWS_signup_select_support_plan.jpg&#34; alt=&#34;Support plan selection&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;http://iict.github.io/opstools/static/img/aws/AWS_signup_select_support_plan.jpg&#34; alt=&#34;Support plan selection&#34; /&gt;&lt;/p&gt;
 
 &lt;p&gt;After you have created the account write down the Account Id to
 use it later when applying for AWS Educate. Go to
