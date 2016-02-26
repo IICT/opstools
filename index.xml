@@ -277,7 +277,7 @@ installtion of VirtualBox Guest Additions does not work any more.&lt;/p&gt;
 
 &lt;h1 id=&#34;what-is-markdown:d59f7b4dfecd890f0583fb0bac5a436e&#34;&gt;What is Markdown&lt;/h1&gt;
 
-&lt;p&gt;Markdown is a very lightweight markup language (like HTML) that is being used by a lot of people. It&amp;rsquo;s fast, efficient, really easy to read and compatible pretty much everywhere.&lt;/p&gt;
+&lt;p&gt;Markdown is a very lightweight markup language (from which you can produce HTML) that is being used by a lot of people. It&amp;rsquo;s fast, efficient, really easy to read and compatible pretty much everywhere. You write a Markdown file in a text editor and it looks almost like a normal formatted text file.&lt;/p&gt;
 
 &lt;p&gt;There are many websites and examples where the text is written in Markdown:&lt;/p&gt;
 
@@ -286,6 +286,26 @@ installtion of VirtualBox Guest Additions does not work any more.&lt;/p&gt;
 &lt;li&gt;Some of the documentation on Moodle is written in Markdown.&lt;/li&gt;
 &lt;li&gt;This very article is also written in Markdown (and obviously all the other articles on this blog).&lt;/li&gt;
 &lt;/ul&gt;
+
+&lt;p&gt;Example: To write this webpage we opened our text editor and typed the following text:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;# What is Markdown
+
+Markdown is a very lightweight markup language (from which you can
+produce HTML) that is being used by a lot of people. It&#39;s fast,
+efficient, really easy to read and compatible pretty much
+everywhere. You write a Markdown file in a text editor and it looks
+almost like a normal formatted text file.
+
+There are many websites and examples where the text is written in
+Markdown:
+
+* READMEs and documentation files on github are in Markdown
+  (extension __.md__)
+* Some of the documentation on Moodle is written in Markdown.
+* This very article is also written in Markdown (and obviously all
+  the other articles on this blog).
+&lt;/code&gt;&lt;/pre&gt;
 
 &lt;h2 id=&#34;quick-guide:d59f7b4dfecd890f0583fb0bac5a436e&#34;&gt;Quick guide&lt;/h2&gt;
 
