@@ -3,8 +3,13 @@
   
   <url>
     <loc>http://iict.github.io/opstools/</loc>
-    <lastmod>2016-02-24T17:37:51+01:00</lastmod>
+    <lastmod>2016-03-24T00:00:00+00:00</lastmod>
     <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>http://iict.github.io/opstools/article/gae/</loc>
+    <lastmod>2016-03-24T00:00:00+00:00</lastmod>
   </url>
   
   <url>

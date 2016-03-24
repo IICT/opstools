@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Install Linux on a VM</title>
+	<title>Preparing a Google App Engine development environment</title>
   	<meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -60,64 +60,169 @@
 	        <div class="col-lg-8">
 
 	            
-	            <h2><a href="http://iict.github.io/opstools/article/install_linux/">Install Linux on a VM</a></h2>
+	            <h2><a href="http://iict.github.io/opstools/article/gae/">Preparing a Google App Engine development environment</a></h2>
 	            <p class="lead">
 	                by <a href="http://iict.github.io/opstools/">IICT Team</a>
 	            </p>
-	            <p><span class="glyphicon glyphicon-time"></span> Posted on Fri, Feb 19, 2016</p>
+	            <p><span class="glyphicon glyphicon-time"></span> Posted on Thu, Mar 24, 2016</p>
 
 	            <hr>
 	            
 	            
 
-<h2 id="motivation:427105df0457cbf0f1fbed8e47f6af1d">Motivation</h2>
+<h2 id="preparing-a-google-app-engine-development-environment:01f5d88a2406759f83fb3b94e6f0e39e">Preparing a Google App Engine development environment</h2>
 
-<p>Developers and system administrators often need to re-create on their personal workstation the server environment they are working on. Servers often run Linux as operating system while for personal workstations Windows or Mac OS X is prevalent. Having a separate workstation for the server OS or installing the server OS via multi-boot is a hassle. Creating a virtual machine provides a quick  way to run a new OS alongside the existing one. This document will show you how to install Ubuntu Linux in a virtual machine.</p>
+<p>Google App Engine offers a free usage tier that gives us ample room to
+perform interesting labs.</p>
 
-<h2 id="create-an-ubuntu-desktop-vm:427105df0457cbf0f1fbed8e47f6af1d">Create an Ubuntu Desktop VM</h2>
-
-<p>Usually, you can get two types of ISOs when you want to install an Ubuntu image:</p>
-
-<ul>
-<li>Server version</li>
-<li>Desktop version</li>
-</ul>
-
-<p>The main difference is, the Ubuntu server version is meant to be used on server machines, so there is no <a href="https://en.wikipedia.org/wiki/Graphical_user_interface">graphical user interface</a> whereas the desktop version has a GUI and ist meant to be used on a personal workstation. The server version has fewer packages than the desktop version and is approximately half the size.</p>
-
-<p>Normally experienced developers and sytem administrators install the server version because they will work on the command line and don&rsquo;t need the overhead of the GUI. As you are only getting started with the command line it is helpful to have the GUI in the beginning, so we recommend you install the <strong>desktop</strong> version.</p>
+<p>To set up a development environment for Google App Engine, you need to
+perform two things:</p>
 
 <ol>
-<li>Download Ubuntu Desktop, version 14.04 LTS 64 bit from the <a href="http://www.ubuntu.com/">Ubuntu website</a> or the <a href="http://mirror.switch.ch/ftp/mirror/ubuntu-cdimage/14.04/">swiss mirror</a>. You need to pick the <em>desktop</em> version, which should be called <em>ubuntu-14.04-desktop-amd64.iso</em>.</li>
+<li><p>Set up a Google account for the use of Google App Engine.</p></li>
 
-<li><p>Install your VM with your virtualization software. Pick the iso you previously downloaded as the source (also called CD image). If you are using VMware, don&rsquo;t use the &ldquo;easy install&rdquo; option.</p>
+<li><p>Download and install the Eclipse-based Google App Engine
+ development environment.</p></li>
+</ol>
 
-<ul>
-<li><p>Choose language: leave default (<strong>English</strong>)</p></li>
+<p>These two tasks are detailed below.</p>
 
-<li><p>Installation options: Install Ubuntu (<strong>Install Ubuntu</strong>)</p></li>
+<h3 id="set-up-a-google-account:01f5d88a2406759f83fb3b94e6f0e39e">Set up a Google account</h3>
 
-<li><p>Erase Disk and install Ubuntu (<strong>Install Now</strong>)</p></li>
-
-<li><p>Where are you (<strong>Zurich</strong>) (Should be by default)</p></li>
-
-<li><p>Configure the keyboard: <strong>Switzerland</strong> &gt; <strong>Switzerland - Switzerland - French (Switzerland)</strong></p></li>
-
-<li><p>Set up users and passwords - A user account will be created for you:</p>
+<p>You can either use an existing Google account (if you are using one of
+Google&rsquo;s services such as GMail you already have an account) or you
+may decide to create a separate account. <strong>We recommend to use separate
+accounts for private and study-related activities.</strong></p>
 
 <ul>
-<li>Full name: your full name</li>
-<li>Your computer&rsquo;s name: default</li>
-<li>Username for your account: <strong>administrator</strong></li>
-<li>Password: invent a password</li>
-<li>Encrypt your home directory?: leave default (<strong>No</strong>)</li>
-</ul></li>
+<li><p>In your browser navigate to <a href="http://appengine.google.com">http://appengine.google.com</a>.</p></li>
 
-<li><p>Finish the installation: <strong>Continue</strong></p></li>
+<li><p>If you want to use an existing account, use the <strong>Sign in</strong> form,
+otherwise click on <strong>Create account</strong> and follow
+the instructions.</p></li>
+
+<li><p>You will be asked to provide a mobile phone number for
+verification purposes. Follow the instructions to receive a code
+on your phone and enter the code on the web page.</p></li>
 </ul>
 
-<p>The installation finishes and the VM reboots. After booting you should see the Linux login prompt.</p></li>
+<p>When the setup is completed you should see the page <strong>Welcome to
+Google App Engine</strong>.</p>
+
+<h3 id="set-up-the-development-environment-on-your-machine:01f5d88a2406759f83fb3b94e6f0e39e">Set up the development environment on your machine</h3>
+
+<p>The setup of the development environment consists of the steps
+detailed below.  If you run into trouble, please consult the
+<a href="https://cloud.google.com/appengine/docs/java/gettingstarted/setup">Google App Engine Java Getting Started guide</a>.</p>
+
+<ol>
+<li><p>Make sure your computer has
+ <a href="http://www.oracle.com/technetwork/java/javase/archive-139210.html">Java SE Development Kit (JDK) 7</a>
+ installed. As of March 2016 Google App Engine does not accept
+ bytecode produced for Java 8. You can install JDK 7 and 8
+ side-by-side on your computer, see the section <strong>Running Java 7
+ and Java 8 side-by-side</strong> below. The last public release of JDK 7
+ from Oracle is <strong>Java SE Development Kit 7u80</strong>.</p></li>
+
+<li><p>Download and install <strong>Eclipse IDE for Java EE Developers</strong>
+ version 4.4.x/Luna that you will find on the
+ <a href="http://www.eclipse.org/downloads/packages/release/luna/sr2">Eclipse Luna SR2 packages download page</a>.</p></li>
+
+<li><p>Download and install the <em>Google Plug-In for Eclipse</em> and the
+ <em>Google App Engine SDK</em> by using the plug-in installer built into
+ Eclispe:</p>
+
+<ul>
+<li><p>Start Eclipse</p></li>
+
+<li><p>Select <strong>Help</strong> &gt; <strong>Install New Software</strong></p></li>
+
+<li><p>In the <strong>Work with:</strong> field enter
+<code>https://dl.google.com/eclipse/plugin/4.4</code> and type Enter.</p>
+
+<ul>
+<li>If you are using version 4.3 of Eclipse, use the URL <code>https://dl.google.com/eclipse/plugin/4.3</code>, if you are using version 3.8 or 4.2, use <code>https://dl.google.com/eclipse/plugin/4.2</code>.</li>
+</ul></li>
+
+<li><p>Check <strong>Google Plugin for Eclipse</strong></p></li>
+
+<li><p>Check <strong>SDKs</strong> &gt; <strong>Google App Engine Java SDK</strong></p></li>
+
+<li><p>Click <strong>Next</strong> and follow the instructions. When the security
+warning appears &ldquo;You are installing software that contains
+unsigned content&rdquo; click <strong>OK</strong>.</p></li>
+</ul></li>
+
+<li><p>Verify the proper installation of Eclipse and the plug-in:</p>
+
+<ul>
+<li><p>Verify Eclipse version: Select <strong>Eclipse</strong> &gt; <strong>About Eclipse</strong></p></li>
+
+<li><p>Verify that the GAE plug-in is active: Select <strong>File</strong> &gt; <strong>New
+Project&hellip;</strong> &gt; <strong>Google</strong> &gt; <strong>Web Application Project</strong>. Click
+<strong>Next</strong>. You should see the dialog <strong>Create a Web Application
+Project</strong>. Click <strong>Cancel</strong>.</p></li>
+</ul></li>
 </ol>
+
+<h3 id="running-java-7-and-java-8-side-by-side:01f5d88a2406759f83fb3b94e6f0e39e">Running Java 7 and Java 8 side-by-side</h3>
+
+<p>If you already have Java 8 on your local machine and you installed
+Java 7 you can start Eclipse using the one or the other. Typically
+Eclipse (and other Java applications) look for the <code>JAVA_HOME</code>
+variable to find the Java runtime.</p>
+
+<h4 id="setting-the-java-version-on-windows:01f5d88a2406759f83fb3b94e6f0e39e">Setting the Java version on Windows</h4>
+
+<p>Write the following batch file and start Eclipse by running it:</p>
+
+<pre><code>SET JAVA_HOME=&quot;C:\Program Files\Java\jdk1.7.0_80&quot;
+SET PATH=&quot;%JAVA_HOME%\bin&quot;
+START eclipse.exe
+</code></pre>
+
+<p>or edit the file <code>eclipse.ini</code> to contain the line:</p>
+
+<pre><code>-vm C:\Program Files\Java\jdk1.7.0_80\bin\java.exe
+</code></pre>
+
+<h4 id="setting-the-java-version-on-mac-os-x:01f5d88a2406759f83fb3b94e6f0e39e">Setting the Java version on Mac OS X</h4>
+
+<p>Add the following line to the <code>.bash_profile</code> file in your personal
+directory:</p>
+
+<pre><code>export JAVA_HOME=/Library/Java/JavaVirtualMachines/&lt;jdk_version&gt;/Contents/Home
+</code></pre>
+
+<p>where <code>&lt;jdk_version&gt;</code> is your JDK version, for example,
+<code>jdk1.7.0_80.jdk</code>.</p>
+
+<p>To make the change immediately effective in your current <code>bash</code>
+session, run</p>
+
+<pre><code>source ~/.bash_profile
+</code></pre>
+
+<p>Then start Eclipse from the command line.</p>
+
+<h4 id="setting-the-java-version-on-linux:01f5d88a2406759f83fb3b94e6f0e39e">Setting the Java version on Linux</h4>
+
+<p>Add the following line to the <code>.profile</code> file in your personal
+directory:</p>
+
+<pre><code>export JAVA_HOME=/usr/local/tools/java/&lt;jdk_version&gt;
+</code></pre>
+
+<p>where <code>&lt;jdk_version&gt;</code> is your JDK version, for example,
+<code>jdk1.7.0_80.jdk</code>.</p>
+
+<p>To make the change immediately effective in your current <code>bash</code>
+session, run</p>
+
+<pre><code>source ~/.profile
+</code></pre>
+
+<p>Then start Eclipse from the command line.</p>
 
 	            <hr>
 

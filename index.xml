@@ -6,8 +6,172 @@
     <description>Recent content on IICT Ops Tools</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Wed, 24 Feb 2016 17:37:51 +0100</lastBuildDate>
+    <lastBuildDate>Thu, 24 Mar 2016 00:00:00 +0000</lastBuildDate>
     <atom:link href="http://iict.github.io/opstools/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>Preparing a Google App Engine development environment</title>
+      <link>http://iict.github.io/opstools/article/gae/</link>
+      <pubDate>Thu, 24 Mar 2016 00:00:00 +0000</pubDate>
+      
+      <guid>http://iict.github.io/opstools/article/gae/</guid>
+      <description>
+
+&lt;h2 id=&#34;preparing-a-google-app-engine-development-environment:01f5d88a2406759f83fb3b94e6f0e39e&#34;&gt;Preparing a Google App Engine development environment&lt;/h2&gt;
+
+&lt;p&gt;Google App Engine offers a free usage tier that gives us ample room to
+perform interesting labs.&lt;/p&gt;
+
+&lt;p&gt;To set up a development environment for Google App Engine, you need to
+perform two things:&lt;/p&gt;
+
+&lt;ol&gt;
+&lt;li&gt;&lt;p&gt;Set up a Google account for the use of Google App Engine.&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;Download and install the Eclipse-based Google App Engine
+ development environment.&lt;/p&gt;&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;These two tasks are detailed below.&lt;/p&gt;
+
+&lt;h3 id=&#34;set-up-a-google-account:01f5d88a2406759f83fb3b94e6f0e39e&#34;&gt;Set up a Google account&lt;/h3&gt;
+
+&lt;p&gt;You can either use an existing Google account (if you are using one of
+Google&amp;rsquo;s services such as GMail you already have an account) or you
+may decide to create a separate account. &lt;strong&gt;We recommend to use separate
+accounts for private and study-related activities.&lt;/strong&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;In your browser navigate to &lt;a href=&#34;http://appengine.google.com&#34;&gt;http://appengine.google.com&lt;/a&gt;.&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;If you want to use an existing account, use the &lt;strong&gt;Sign in&lt;/strong&gt; form,
+otherwise click on &lt;strong&gt;Create account&lt;/strong&gt; and follow
+the instructions.&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;You will be asked to provide a mobile phone number for
+verification purposes. Follow the instructions to receive a code
+on your phone and enter the code on the web page.&lt;/p&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;When the setup is completed you should see the page &lt;strong&gt;Welcome to
+Google App Engine&lt;/strong&gt;.&lt;/p&gt;
+
+&lt;h3 id=&#34;set-up-the-development-environment-on-your-machine:01f5d88a2406759f83fb3b94e6f0e39e&#34;&gt;Set up the development environment on your machine&lt;/h3&gt;
+
+&lt;p&gt;The setup of the development environment consists of the steps
+detailed below.  If you run into trouble, please consult the
+&lt;a href=&#34;https://cloud.google.com/appengine/docs/java/gettingstarted/setup&#34;&gt;Google App Engine Java Getting Started guide&lt;/a&gt;.&lt;/p&gt;
+
+&lt;ol&gt;
+&lt;li&gt;&lt;p&gt;Make sure your computer has
+ &lt;a href=&#34;http://www.oracle.com/technetwork/java/javase/archive-139210.html&#34;&gt;Java SE Development Kit (JDK) 7&lt;/a&gt;
+ installed. As of March 2016 Google App Engine does not accept
+ bytecode produced for Java 8. You can install JDK 7 and 8
+ side-by-side on your computer, see the section &lt;strong&gt;Running Java 7
+ and Java 8 side-by-side&lt;/strong&gt; below. The last public release of JDK 7
+ from Oracle is &lt;strong&gt;Java SE Development Kit 7u80&lt;/strong&gt;.&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;Download and install &lt;strong&gt;Eclipse IDE for Java EE Developers&lt;/strong&gt;
+ version 4.4.x/Luna that you will find on the
+ &lt;a href=&#34;http://www.eclipse.org/downloads/packages/release/luna/sr2&#34;&gt;Eclipse Luna SR2 packages download page&lt;/a&gt;.&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;Download and install the &lt;em&gt;Google Plug-In for Eclipse&lt;/em&gt; and the
+ &lt;em&gt;Google App Engine SDK&lt;/em&gt; by using the plug-in installer built into
+ Eclispe:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;Start Eclipse&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;Select &lt;strong&gt;Help&lt;/strong&gt; &amp;gt; &lt;strong&gt;Install New Software&lt;/strong&gt;&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;In the &lt;strong&gt;Work with:&lt;/strong&gt; field enter
+&lt;code&gt;https://dl.google.com/eclipse/plugin/4.4&lt;/code&gt; and type Enter.&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;If you are using version 4.3 of Eclipse, use the URL &lt;code&gt;https://dl.google.com/eclipse/plugin/4.3&lt;/code&gt;, if you are using version 3.8 or 4.2, use &lt;code&gt;https://dl.google.com/eclipse/plugin/4.2&lt;/code&gt;.&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;Check &lt;strong&gt;Google Plugin for Eclipse&lt;/strong&gt;&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;Check &lt;strong&gt;SDKs&lt;/strong&gt; &amp;gt; &lt;strong&gt;Google App Engine Java SDK&lt;/strong&gt;&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;Click &lt;strong&gt;Next&lt;/strong&gt; and follow the instructions. When the security
+warning appears &amp;ldquo;You are installing software that contains
+unsigned content&amp;rdquo; click &lt;strong&gt;OK&lt;/strong&gt;.&lt;/p&gt;&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;Verify the proper installation of Eclipse and the plug-in:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;Verify Eclipse version: Select &lt;strong&gt;Eclipse&lt;/strong&gt; &amp;gt; &lt;strong&gt;About Eclipse&lt;/strong&gt;&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;Verify that the GAE plug-in is active: Select &lt;strong&gt;File&lt;/strong&gt; &amp;gt; &lt;strong&gt;New
+Project&amp;hellip;&lt;/strong&gt; &amp;gt; &lt;strong&gt;Google&lt;/strong&gt; &amp;gt; &lt;strong&gt;Web Application Project&lt;/strong&gt;. Click
+&lt;strong&gt;Next&lt;/strong&gt;. You should see the dialog &lt;strong&gt;Create a Web Application
+Project&lt;/strong&gt;. Click &lt;strong&gt;Cancel&lt;/strong&gt;.&lt;/p&gt;&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;h3 id=&#34;running-java-7-and-java-8-side-by-side:01f5d88a2406759f83fb3b94e6f0e39e&#34;&gt;Running Java 7 and Java 8 side-by-side&lt;/h3&gt;
+
+&lt;p&gt;If you already have Java 8 on your local machine and you installed
+Java 7 you can start Eclipse using the one or the other. Typically
+Eclipse (and other Java applications) look for the &lt;code&gt;JAVA_HOME&lt;/code&gt;
+variable to find the Java runtime.&lt;/p&gt;
+
+&lt;h4 id=&#34;setting-the-java-version-on-windows:01f5d88a2406759f83fb3b94e6f0e39e&#34;&gt;Setting the Java version on Windows&lt;/h4&gt;
+
+&lt;p&gt;Write the following batch file and start Eclipse by running it:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;SET JAVA_HOME=&amp;quot;C:\Program Files\Java\jdk1.7.0_80&amp;quot;
+SET PATH=&amp;quot;%JAVA_HOME%\bin&amp;quot;
+START eclipse.exe
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;or edit the file &lt;code&gt;eclipse.ini&lt;/code&gt; to contain the line:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;-vm C:\Program Files\Java\jdk1.7.0_80\bin\java.exe
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h4 id=&#34;setting-the-java-version-on-mac-os-x:01f5d88a2406759f83fb3b94e6f0e39e&#34;&gt;Setting the Java version on Mac OS X&lt;/h4&gt;
+
+&lt;p&gt;Add the following line to the &lt;code&gt;.bash_profile&lt;/code&gt; file in your personal
+directory:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;export JAVA_HOME=/Library/Java/JavaVirtualMachines/&amp;lt;jdk_version&amp;gt;/Contents/Home
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;where &lt;code&gt;&amp;lt;jdk_version&amp;gt;&lt;/code&gt; is your JDK version, for example,
+&lt;code&gt;jdk1.7.0_80.jdk&lt;/code&gt;.&lt;/p&gt;
+
+&lt;p&gt;To make the change immediately effective in your current &lt;code&gt;bash&lt;/code&gt;
+session, run&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;source ~/.bash_profile
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Then start Eclipse from the command line.&lt;/p&gt;
+
+&lt;h4 id=&#34;setting-the-java-version-on-linux:01f5d88a2406759f83fb3b94e6f0e39e&#34;&gt;Setting the Java version on Linux&lt;/h4&gt;
+
+&lt;p&gt;Add the following line to the &lt;code&gt;.profile&lt;/code&gt; file in your personal
+directory:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;export JAVA_HOME=/usr/local/tools/java/&amp;lt;jdk_version&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;where &lt;code&gt;&amp;lt;jdk_version&amp;gt;&lt;/code&gt; is your JDK version, for example,
+&lt;code&gt;jdk1.7.0_80.jdk&lt;/code&gt;.&lt;/p&gt;
+
+&lt;p&gt;To make the change immediately effective in your current &lt;code&gt;bash&lt;/code&gt;
+session, run&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;source ~/.profile
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Then start Eclipse from the command line.&lt;/p&gt;
+</description>
+    </item>
     
     <item>
       <title>Control your AWS expenses</title>
