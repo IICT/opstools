@@ -70,11 +70,11 @@
 	            
 	            
 
-<h2 id="motivation:427105df0457cbf0f1fbed8e47f6af1d">Motivation</h2>
+<h2 id="motivation">Motivation</h2>
 
 <p>Developers and system administrators often need to re-create on their personal workstation the server environment they are working on. Servers often run Linux as operating system while for personal workstations Windows or Mac OS X is prevalent. Having a separate workstation for the server OS or installing the server OS via multi-boot is a hassle. Creating a virtual machine provides a quick  way to run a new OS alongside the existing one. This document will show you how to install Ubuntu Linux in a virtual machine.</p>
 
-<h2 id="create-an-ubuntu-desktop-vm:427105df0457cbf0f1fbed8e47f6af1d">Create an Ubuntu Desktop VM</h2>
+<h2 id="create-an-ubuntu-desktop-vm">Create an Ubuntu Desktop VM</h2>
 
 <p>Usually, you can get two types of ISOs when you want to install an Ubuntu image:</p>
 
@@ -83,32 +83,32 @@
 <li>Desktop version</li>
 </ul>
 
-<p>The main difference is, the Ubuntu server version is meant to be used on server machines, so there is no <a href="https://en.wikipedia.org/wiki/Graphical_user_interface">graphical user interface</a> whereas the desktop version has a GUI and ist meant to be used on a personal workstation. The server version has fewer packages than the desktop version and is approximately half the size.</p>
+<p>The main difference is that the Ubuntu server version is meant to be used on server machines, so there is no <a href="https://en.wikipedia.org/wiki/Graphical_user_interface">graphical user interface</a> whereas the desktop version has a GUI and ist meant to be used on a personal workstation. The server version has fewer packages than the desktop version and is approximately half the size.</p>
 
 <p>Normally experienced developers and sytem administrators install the server version because they will work on the command line and don&rsquo;t need the overhead of the GUI. As you are only getting started with the command line it is helpful to have the GUI in the beginning, so we recommend you install the <strong>desktop</strong> version.</p>
 
 <ol>
-<li>Download Ubuntu Desktop, version 14.04 LTS 64 bit from the <a href="http://www.ubuntu.com/">Ubuntu website</a> or the <a href="http://mirror.switch.ch/ftp/mirror/ubuntu-cdimage/14.04/">swiss mirror</a>. You need to pick the <em>desktop</em> version, which should be called <em>ubuntu-14.04-desktop-amd64.iso</em>.</li>
+<li>Download Ubuntu Desktop, version 16.04.2 LTS 64 bit from the <a href="http://www.ubuntu.com/download/desktop">Ubuntu website</a> or the <a href="http://mirror.switch.ch/ftp/mirror/ubuntu-cdimage/">swiss mirror</a>. You need to pick the <em>desktop</em> version, which should be called <em>ubuntu-16.04.2-desktop-amd64.iso</em>.</li>
 
-<li><p>Install your VM with your virtualization software. Pick the iso you previously downloaded as the source (also called CD image). If you are using VMware, don&rsquo;t use the &ldquo;easy install&rdquo; option.</p>
-
-<ul>
-<li><p>Choose language: leave default (<strong>English</strong>)</p></li>
-
-<li><p>Installation options: Install Ubuntu (<strong>Install Ubuntu</strong>)</p></li>
-
-<li><p>Erase Disk and install Ubuntu (<strong>Install Now</strong>)</p></li>
-
-<li><p>Where are you (<strong>Zurich</strong>) (Should be by default)</p></li>
-
-<li><p>Configure the keyboard: <strong>Switzerland</strong> &gt; <strong>Switzerland - Switzerland - French (Switzerland)</strong></p></li>
-
-<li><p>Set up users and passwords - A user account will be created for you:</p>
+<li><p>Install your VM with your virtualization software. Depending on your virtualization software configure the ISO file you previously downloaded (also called CD image) as the disk in the virtual optical drive, or pick it as the source of the new VM. If you are using VMware, don&rsquo;t use the &ldquo;easy install&rdquo; option.</p>
 
 <ul>
-<li>Full name: your full name</li>
-<li>Your computer&rsquo;s name: default</li>
-<li>Username for your account: <strong>administrator</strong></li>
+<li><p>On the first screen leave the language at the default (<strong>English</strong>). Then choose <strong>Install Ubuntu</strong>.</p></li>
+
+<li><p><strong>Preparing to install Ubuntu:</strong> Check <strong>Download updates</strong></p></li>
+
+<li><p><strong>Installation Type:</strong> Select <strong>Erase Disk and install Ubuntu</strong>.</p></li>
+
+<li><p><strong>Where are you?</strong>: Select <strong>Zurich</strong> (Should be selected by default)</p></li>
+
+<li><p><strong>Configure the keyboard</strong>: Select <strong>Switzerland</strong> &gt; <strong>Switzerland - Switzerland - French (Switzerland)</strong></p></li>
+
+<li><p><strong>Who are you?</strong> - This will create a user account for you:</p>
+
+<ul>
+<li>Your name: your full name</li>
+<li>Your computer&rsquo;s name: leave at default</li>
+<li>Pick a username: leave at default</li>
 <li>Password: invent a password</li>
 <li>Encrypt your home directory?: leave default (<strong>No</strong>)</li>
 </ul></li>
@@ -116,7 +116,7 @@
 <li><p>Finish the installation: <strong>Continue</strong></p></li>
 </ul>
 
-<p>The installation finishes and the VM reboots. After booting you should see the Linux login prompt.</p></li>
+<p>The installation finishes and the VM reboots. After booting you should see the Ubuntu login screen.</p></li>
 </ol>
 
 	            <hr>
@@ -184,6 +184,8 @@
                               
                                 
                                   <li><a href="http://iict.github.io/opstools/article/install_linux/">Install Linux on a VM</a></li>
+                                
+                              
                                 
                               
                                 
