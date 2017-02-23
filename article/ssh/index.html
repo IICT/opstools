@@ -72,7 +72,14 @@
 
 <p>Professional developers and system administrators working with Linux servers often re-create the server environment on their local machine by running Linux with the server applications in a virtual machine. They are used to work on the command line and they connect to the remote servers via SSH. To access the local Linux VM they use SSH as well instead of using the VirtualBox/VMware console, because they can keep using the same keystrokes and work faster. In this article we explain how to set up SSH to connect from a host machine to a Linux guest VM.</p>
 
-<h3 id="for-windows-users-only-install-git-bash:b5e789e001cfcd9a18b36ef13da96386">(For Windows users only:) Install Git bash</h3>
+<h3 id="install-an-ssh-server-on-your-linux-vm">Install an SSH server on your Linux VM</h3>
+
+<p>Open a terminal in your Linux VM and type</p>
+
+<pre><code>sudo apt install openssh-server
+</code></pre>
+
+<h3 id="for-windows-users-only-install-git-bash">(For Windows users only:) Install Git bash</h3>
 
 <p>To connect to another machine via SSH you need an SSH client program on your Windows machine. A popular option is to use <a href="http://www.putty.org">Putty</a>, but we recommend <strong>Git Bash</strong> instead as it is easier to use. Git Bash has also the nice feature that it provides an emulation of the Bash shell and allows you (more or less) to use Linux commands from a terminal on a Windows machine.</p>
 
@@ -114,7 +121,7 @@ $ pwd
 
 <p><strong>Caution:</strong> When you are asked in a lab to work with Bash (command line or scripts), don&rsquo;t use Git Bash to do the lab, as it is not a real Bash shell. Use it only to <strong>connect</strong> to a machine where a real Bash shell is running.</p>
 
-<h3 id="configure-the-virtualization-software-to-forward-port-2222-to-port-22:b5e789e001cfcd9a18b36ef13da96386">Configure the virtualization software to forward port 2222 to port 22</h3>
+<h3 id="configure-the-virtualization-software-to-forward-port-2222-to-port-22">Configure the virtualization software to forward port 2222 to port 22</h3>
 
 <p>In this section we change the networking configuration of the virtualization software so that the SSH client on your host can connect to the SSH server on your guest VM.</p>
 
@@ -134,7 +141,7 @@ $ pwd
 $ sudo apt-get install openssh-server 
 </code></pre>
 
-<h3 id="create-a-keypair:b5e789e001cfcd9a18b36ef13da96386">Create a keypair</h3>
+<h3 id="create-a-keypair">Create a keypair</h3>
 
 <p>There are generally two ways to log into a machine with SSH:</p>
 
@@ -156,11 +163,11 @@ $ sudo apt-get install openssh-server
 
 <p>In the following we explain the steps in more detail.</p>
 
-<h4 id="log-into-the-linux-vm-using-username-and-password:b5e789e001cfcd9a18b36ef13da96386">Log into the Linux VM using username and password</h4>
+<h4 id="log-into-the-linux-vm-using-username-and-password">Log into the Linux VM using username and password</h4>
 
 <p>Open a terminal on your host and type:</p>
 
-<pre><code>    $ ssh -p 2222 administrator@127.0.0.1
+<pre><code>    $ ssh -p 2222 &lt;your_username&gt;@127.0.0.1
 </code></pre>
 
 <p>As you are using SSH for the first time to connect to a new host, SSH will print a warning like this:</p>
@@ -173,12 +180,12 @@ Are you sure you want to continue connecting (yes/no)? yes
 
 <p>If it works, you will see the command line prompt of the Linux VM, which should look like this:</p>
 
-<pre><code>administrator@ubuntu:~$ 
+<pre><code>&lt;username&gt;@ubuntu:~$ 
 </code></pre>
 
 <p>You are now logged into the Linux VM via SSH and every command you type in this terminal will be executed on the Linux VM.</p>
 
-<h4 id="on-the-linux-vm-create-an-ssh-configuration-directory-and-generate-a-keypair:b5e789e001cfcd9a18b36ef13da96386">On the Linux VM create an SSH configuration directory and generate a keypair</h4>
+<h4 id="on-the-linux-vm-create-an-ssh-configuration-directory-and-generate-a-keypair">On the Linux VM create an SSH configuration directory and generate a keypair</h4>
 
 <p>This involves the following steps:</p>
 
@@ -223,7 +230,7 @@ The key's randomart image is:
 </code></pre></li>
 </ol>
 
-<h4 id="on-the-host-machine-create-an-ssh-configuration-directory-and-transfer-the-private-key-of-the-keypair-to-the-host-machine:b5e789e001cfcd9a18b36ef13da96386">On the host machine create an SSH configuration directory and transfer the private key of the keypair to the host machine.</h4>
+<h4 id="on-the-host-machine-create-an-ssh-configuration-directory-and-transfer-the-private-key-of-the-keypair-to-the-host-machine">On the host machine create an SSH configuration directory and transfer the private key of the keypair to the host machine.</h4>
 
 <p>On your host machine open a second terminal. Create the SSH configuration directory <code>~/.ssh</code> and protect it from outside access</p>
 
@@ -262,7 +269,7 @@ save the file and <strong>Ctrl-X</strong> to exit the editor.</p>
 </code></pre></li>
 </ol>
 
-<h4 id="use-the-new-keypair-to-login:b5e789e001cfcd9a18b36ef13da96386">Use the new keypair to login.</h4>
+<h4 id="use-the-new-keypair-to-login">Use the new keypair to login.</h4>
 
 <p>You should be able to connect to your Linux VM without needing to specify a password, like this:</p>
 
@@ -337,6 +344,8 @@ save the file and <strong>Ctrl-X</strong> to exit the editor.</p>
                               
                                 
                                   <li><a href="http://iict.github.io/opstools/article/install_linux/">Install Linux on a VM</a></li>
+                                
+                              
                                 
                               
                                 
